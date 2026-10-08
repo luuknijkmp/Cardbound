@@ -20,9 +20,22 @@ public class CardFactory {
 
 
     public static ItemStack createCard(Identifier cardId, CardOrigin origin) {
+        return createCard(cardId, origin, false);
+    }
+
+    public static ItemStack createCard(
+            Identifier cardId,
+            CardOrigin origin,
+            boolean holo
+    ) {
         ItemStack stack = new ItemStack(ModItems.CARD);
         stack.set(ModComponents.CARD_ID, cardId);
         stack.set(ModComponents.CARD_ORIGIN, origin.name());
+        stack.set(ModComponents.CARD_HOLO, holo);
+
+        if (holo) {
+            stack.set(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true);
+        }
 
         CardRegistry.get(cardId).ifPresent(definition -> {
             String setName = SetRegistry.get(definition.set())
@@ -44,6 +57,7 @@ public class CardFactory {
                                             Component.literal(
                                                             definition.rarity().substring(0, 1).toUpperCase()
                                                                     + definition.rarity().substring(1).toLowerCase()
+                                                                    + (holo ? " (Holo)" : "")
                                                     )
                                                     .withStyle(getRarityColor(definition.rarity()))
                                     )

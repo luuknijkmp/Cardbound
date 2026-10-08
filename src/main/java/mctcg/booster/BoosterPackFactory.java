@@ -1,5 +1,6 @@
 package mctcg.booster;
 
+import mctcg.card.CardDefinition;
 import mctcg.card.CardFactory;
 import mctcg.card.CardOrigin;
 import mctcg.card.CardRegistry;
@@ -8,7 +9,9 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BoosterPackFactory {
 
@@ -33,6 +36,19 @@ public class BoosterPackFactory {
                         .orElse(false))
                 .toList();
 
+        Map<String, List<Identifier>> cardsByRarity = new HashMap<>();
+
+        for (Identifier cardId : availableCards) {
+            CardDefinition definition = CardRegistry.get(cardId).orElseThrow();
+
+            cardsByRarity
+                    .computeIfAbsent(
+                            definition.rarity(),
+                            rarity -> new ArrayList<>()
+                    )
+                    .add(cardId);
+        }
+
         List<ItemStack> rewards = new ArrayList<>();
 
         if (availableCards.isEmpty()) {
@@ -40,19 +56,93 @@ public class BoosterPackFactory {
         }
 
         // Generate the configured number of cards.
-        for (int i = 0; i < booster.cardsPerPack(); i++) {
-            int randomIndex = random.nextInt(availableCards.size());
+        for (BoosterSlot slot : booster.slots()) {
 
-            Identifier selectedCard = availableCards.get(randomIndex);
+            for (int i = 0; i < slot.count(); i++) {
 
-            ItemStack card = CardFactory.createCard(
-                    selectedCard,
-                    CardOrigin.BOOSTER_PACK
-            );
+                String selectedRarity = chooseRarity(
+                        cardsByRarity,
+                        booster.rarityWeights(),
+                        slot.minimumRarity(),
+                        random
+                );
 
-            rewards.add(card);
+                if (selectedRarity == null) {
+                    continue;
+                }
+
+                List<Identifier> rarityCards = cardsByRarity.get(selectedRarity);
+
+                Identifier selectedCard = rarityCards.get(
+                        random.nextInt(rarityCards.size())
+                );
+
+                boolean holo = random.nextDouble() < booster.holoChance();
+
+                ItemStack card = CardFactory.createCard(
+                        selectedCard,
+                        CardOrigin.BOOSTER_PACK,
+                        holo
+                );
+
+                rewards.add(card);
+            }
         }
 
         return rewards;
+    }
+
+    private static String chooseRarity(
+            Map<String, List<Identifier>> cardsByRarity,
+            Map<String, Integer> rarityWeights,
+            String minimumRarity,
+            RandomSource random
+    ) {
+        int minimumRank = rarityRank(minimumRarity);
+
+        if (minimumRank < 0) {
+            return null;
+        }
+
+        int totalWeight = 0;
+
+        for (String rarity : cardsByRarity.keySet()) {
+            if (rarityRank(rarity) >= minimumRank) {
+                totalWeight += rarityWeights.getOrDefault(rarity, 0);
+            }
+        }
+
+        if (totalWeight <= 0) {
+            return null;
+        }
+
+        int roll = random.nextInt(totalWeight);
+
+        for (String rarity : cardsByRarity.keySet()) {
+            if (rarityRank(rarity) < minimumRank) {
+                continue;
+            }
+
+            int weight = rarityWeights.getOrDefault(rarity, 0);
+
+            if (roll < weight) {
+                return rarity;
+            }
+
+            roll -= weight;
+        }
+
+        return null;
+    }
+
+    private static int rarityRank(String rarity) {
+        return switch (rarity) {
+            case "common" -> 0;
+            case "uncommon" -> 1;
+            case "rare" -> 2;
+            case "epic" -> 3;
+            case "legendary" -> 4;
+            default -> -1;
+        };
     }
 }

@@ -40,6 +40,16 @@ public class ModComponents {
                             .build()
             );
 
+    public static final DataComponentType<Boolean> CARD_HOLO =
+            Registry.register(
+                    BuiltInRegistries.DATA_COMPONENT_TYPE,
+                    Identifier.fromNamespaceAndPath("mctcg", "card_holo"),
+                    DataComponentType.<Boolean>builder()
+                            .persistent(Codec.BOOL)
+                            .networkSynchronized(ByteBufCodecs.BOOL)
+                            .build()
+            );
+
     public static void initialize() {
         // Triggers static initialization.
     }

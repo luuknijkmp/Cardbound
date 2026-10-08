@@ -59,6 +59,31 @@ public class ModCommands {
 
                                                         return Command.SINGLE_SUCCESS;
                                                     })
+                                                    .then(Commands.literal("holo")
+                                                            .executes(context -> {
+                                                                Identifier cardId = IdentifierArgument.getId(
+                                                                        context, "card_id"
+                                                                );
+
+                                                                if (!CardRegistry.exists(cardId)) {
+                                                                    context.getSource().sendFailure(
+                                                                            Component.literal("Unknown card: " + cardId)
+                                                                    );
+                                                                    return 0;
+                                                                }
+
+                                                                ItemStack card = CardFactory.createCard(
+                                                                        cardId,
+                                                                        CardOrigin.ADMIN_COMMAND,
+                                                                        true
+                                                                );
+
+                                                                context.getSource().getPlayerOrException()
+                                                                        .getInventory().add(card);
+
+                                                                return 1;
+                                                            })
+                                                    )
                                     )
                     );
 
