@@ -1,0 +1,8 @@
+
+{
+  "name": "Creeper",
+  "rarity": "common",
+  "set": "mctcg:overworld",
+  "number": 13,
+  "entity": "minecraft:creeper"
+}
