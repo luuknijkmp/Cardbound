@@ -14,6 +14,7 @@ import net.minecraft.server.permissions.Permissions;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.network.chat.Component;
 import mctcg.card.CardOrigin;
+import mctcg.essence.PlayerEssence;
 
 public class ModCommands {
 
@@ -120,6 +121,48 @@ public class ModCommands {
 
                                                 return 1;
                                             }))
+                    );
+
+                    dispatcher.register(
+                            Commands.literal("essence")
+                                    .executes(context -> {
+                                        var player = context.getSource().getPlayerOrException();
+
+                                        int essence = player.getAttachedOrCreate(PlayerEssence.ESSENCE);
+
+                                        context.getSource().sendSuccess(
+                                                () -> Component.literal(
+                                                        "Essence: " + essence + "/" + PlayerEssence.MAX_ESSENCE
+                                                ),
+                                                false
+                                        );
+
+                                        return Command.SINGLE_SUCCESS;
+                                    })
+                                    .then(
+                                            Commands.literal("spend")
+                                                    .requires(source -> source.permissions()
+                                                            .hasPermission(Permissions.COMMANDS_GAMEMASTER))
+                                                    .executes(context -> {
+                                                        var player = context.getSource().getPlayerOrException();
+
+                                                        int current = player.getAttachedOrCreate(PlayerEssence.ESSENCE);
+                                                        int newAmount = Math.max(0, current - 5);
+
+                                                        player.setAttached(PlayerEssence.ESSENCE, newAmount);
+
+                                                        context.getSource().sendSuccess(
+                                                                () -> Component.literal(
+                                                                        "Spent 5 Essence. Remaining: "
+                                                                                + newAmount + "/"
+                                                                                + PlayerEssence.MAX_ESSENCE
+                                                                ),
+                                                                false
+                                                        );
+
+                                                        return Command.SINGLE_SUCCESS;
+                                                    })
+                                    )
                     );
                 }
         );

@@ -1,6 +1,7 @@
 package mctcg;
 
 import mctcg.booster.BoosterReloadListener;
+import mctcg.essence.PlayerEssence;
 import mctcg.set.SetReloadListener;
 import net.fabricmc.api.ModInitializer;
 
@@ -30,6 +31,7 @@ public class MinecraftTCG implements ModInitializer {
 		ModItems.initialize();
 		ModComponents.initialize();
 		ModCommands.initialize();
+		PlayerEssence.initialize();
 
 		//System.out.println("[MCTCG] Registering card reload listener");
 		ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(
@@ -46,8 +48,6 @@ public class MinecraftTCG implements ModInitializer {
 				Identifier.fromNamespaceAndPath("mctcg", "boosters"),
 				new BoosterReloadListener()
 		);
-
-		LOGGER.info("Hello Fabric world!");
 	}
 
 	public static Identifier id(String path) {

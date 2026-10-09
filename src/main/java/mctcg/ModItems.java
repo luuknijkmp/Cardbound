@@ -8,6 +8,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import mctcg.booster.BoosterPackItem;
+import mctcg.card.CardItem;
 
 public class ModItems {
 
@@ -28,7 +29,7 @@ public class ModItems {
     public static final Item CARD = Registry.register(
             BuiltInRegistries.ITEM,
             CARD_KEY,
-            new Item(new Item.Properties()
+            new CardItem(new Item.Properties()
                     .setId(CARD_KEY)
                     .stacksTo(1))
     );

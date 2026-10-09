@@ -1,0 +1,15 @@
+
+{
+  "name": "Spider",
+  "rarity": "common",
+  "set": "mctcg:overworld",
+  "number": 14,
+  "entity": "minecraft:spider",
+  "cost": 3,
+  "ability": {
+    "type": "mctcg:apply_effect",
+    "effect": "minecraft:night_vision",
+    "duration": 200,
+    "amplifier": 0
+  }
+}
