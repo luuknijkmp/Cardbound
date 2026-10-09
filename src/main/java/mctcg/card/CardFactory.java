@@ -10,6 +10,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 
 import java.util.List;
+
 import net.minecraft.world.item.component.ItemLore;
 
 import net.minecraft.ChatFormatting;
@@ -48,47 +49,63 @@ public class CardFactory {
             );
 
 
+            // Line 1: Rarity [Holo] | Set | Number | Origin
+            Component infoLine = Component.literal(
+                            definition.rarity().substring(0, 1).toUpperCase()
+                                    + definition.rarity().substring(1).toLowerCase()
+                    )
+                    .withStyle(getRarityColor(definition.rarity()));
+
+            if (holo) {
+                infoLine = infoLine.copy().append(
+                        Component.literal(" [Holo]")
+                                .withStyle(ChatFormatting.WHITE)
+                );
+            }
+
+            infoLine = infoLine.copy()
+                    .append(Component.literal(" | ").withStyle(ChatFormatting.GRAY))
+                    .append(Component.literal(setName).withStyle(ChatFormatting.WHITE))
+                    .append(Component.literal(" | ").withStyle(ChatFormatting.GRAY))
+                    .append(
+                            Component.literal(String.format("%03d", definition.number()))
+                                    .withStyle(ChatFormatting.WHITE)
+                    )
+                    .append(Component.literal(" | ").withStyle(ChatFormatting.GRAY))
+                    .append(
+                            Component.literal(origin.getDisplayName())
+                                    .withStyle(origin.getColor())
+                    );
+
+// Line 2: Ability description
+            Component abilityLine = Component.literal("Ability: ")
+                    .withStyle(ChatFormatting.GRAY)
+                    .append(
+                            Component.literal(
+                                            definition.abilityDescription().isBlank()
+                                                    ? "None"
+                                                    : definition.abilityDescription()
+                                    )
+                                    .withStyle(ChatFormatting.WHITE)
+                    );
+
+// Line 3: Essence cost
+            Component costLine = Component.literal("Cost: ")
+                    .withStyle(ChatFormatting.GRAY)
+                    .append(
+                            Component.literal(String.valueOf(definition.cost()))
+                                    .withStyle(ChatFormatting.WHITE)
+                    );
+
+// Disable Minecraft's default italic formatting on all three lines.
             stack.set(
                     DataComponents.LORE,
                     new ItemLore(List.of(
-                            Component.literal("Rarity: ")
-                                    .withStyle(ChatFormatting.GRAY)
-                                    .append(
-                                            Component.literal(
-                                                            definition.rarity().substring(0, 1).toUpperCase()
-                                                                    + definition.rarity().substring(1).toLowerCase()
-                                                                    + (holo ? " (Holo)" : "")
-                                                    )
-                                                    .withStyle(getRarityColor(definition.rarity()))
-                                    )
-                                    .withStyle(style -> style.withItalic(false)),
-
-                            Component.literal("Set: ")
-                                    .withStyle(ChatFormatting.GRAY)
-                                    .append(
-                                            Component.literal(setName)
-                                                    .withStyle(ChatFormatting.WHITE)
-                                    )
-                                    .withStyle(style -> style.withItalic(false)),
-
-                            Component.literal("#: ")
-                                    .withStyle(ChatFormatting.GRAY)
-                                    .append(
-                                            Component.literal(
-                                                    String.format("%03d", definition.number())
-                                            ).withStyle(ChatFormatting.WHITE)
-                                    )
-                                    .withStyle(style -> style.withItalic(false)),
-                            Component.literal("Origin: ")
-                                    .withStyle(ChatFormatting.GRAY)
-                                    .append(
-                                            Component.literal(origin.getDisplayName())
-                                                    .withStyle(origin.getColor())
-                                    )
-                                    .withStyle(style -> style.withItalic(false))
+                            infoLine.copy().withStyle(style -> style.withItalic(false)),
+                            abilityLine.copy().withStyle(style -> style.withItalic(false)),
+                            costLine.copy().withStyle(style -> style.withItalic(false))
                     ))
             );
-
 
         });
 

@@ -14,6 +14,8 @@ import mctcg.card.CardReloadListener;
 import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackType;
+import mctcg.network.CardActivationPayload;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 
 public class MinecraftTCG implements ModInitializer {
 	public static final String MOD_ID = "minecraft-tcg";
@@ -47,6 +49,11 @@ public class MinecraftTCG implements ModInitializer {
 		ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(
 				Identifier.fromNamespaceAndPath("mctcg", "boosters"),
 				new BoosterReloadListener()
+		);
+
+		PayloadTypeRegistry.clientboundPlay().register(
+				CardActivationPayload.TYPE,
+				CardActivationPayload.CODEC
 		);
 	}
 

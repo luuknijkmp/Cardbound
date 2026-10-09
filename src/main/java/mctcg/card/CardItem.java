@@ -11,6 +11,9 @@ import mctcg.essence.PlayerEssence;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
+import mctcg.network.CardActivationPayload;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.server.level.ServerPlayer;
 
 public class CardItem extends Item {
 
@@ -92,6 +95,14 @@ public class CardItem extends Item {
 
 // Only spend Essence after successful activation.
         player.setAttached(PlayerEssence.ESSENCE, currentEssence - cost);
+
+// Play the card activation animation for the player.
+        if (player instanceof ServerPlayer serverPlayer) {
+            ServerPlayNetworking.send(
+                    serverPlayer,
+                    new CardActivationPayload(hand == InteractionHand.OFF_HAND)
+            );
+        }
 
         return InteractionResult.SUCCESS;
     }

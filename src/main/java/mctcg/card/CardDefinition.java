@@ -13,7 +13,8 @@ public record CardDefinition(
         int number,
         Identifier entity,
         int cost,
-        Optional<CardAbility> ability
+        Optional<CardAbility> ability,
+        String abilityDescription
 ) {
 
     public static final Codec<CardDefinition> CODEC =
@@ -36,7 +37,10 @@ public record CardDefinition(
                             .forGetter(CardDefinition::cost),
 
                     CardAbility.CODEC.optionalFieldOf("ability")
-                            .forGetter(CardDefinition::ability)
+                            .forGetter(CardDefinition::ability),
+
+                    Codec.STRING.optionalFieldOf("ability_description", "")
+                            .forGetter(CardDefinition::abilityDescription)
 
             ).apply(instance, CardDefinition::new));
 }

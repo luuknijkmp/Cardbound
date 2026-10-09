@@ -6,6 +6,7 @@
   "number": 14,
   "entity": "minecraft:spider",
   "cost": 3,
+  "ability_description": "Grants Night Vision for 10 seconds",
   "ability": {
     "type": "mctcg:apply_effect",
     "effect": "minecraft:night_vision",
