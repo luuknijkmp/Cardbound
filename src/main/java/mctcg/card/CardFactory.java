@@ -39,6 +39,12 @@ public class CardFactory {
         }
 
         CardRegistry.get(cardId).ifPresent(definition -> {
+            // Use a custom item model if the card defines one.
+            // Otherwise, keep the default mctcg:card model.
+            definition.texture().ifPresent(textureId ->
+                    stack.set(DataComponents.ITEM_MODEL, textureId)
+            );
+
             String setName = SetRegistry.get(definition.set())
                     .map(set -> set.name())
                     .orElse(definition.set().toString());

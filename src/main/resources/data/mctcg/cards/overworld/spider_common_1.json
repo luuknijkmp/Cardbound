@@ -3,8 +3,9 @@
   "name": "Spider",
   "rarity": "common",
   "set": "mctcg:overworld",
-  "number": 14,
+  "number": 4,
   "entity": "minecraft:spider",
+  "texture": "mctcg:spider_common_1",
   "cost": 3,
   "ability_description": "Grants Night Vision for 10 seconds",
   "ability": {

@@ -14,7 +14,8 @@ public record CardDefinition(
         Identifier entity,
         int cost,
         Optional<CardAbility> ability,
-        String abilityDescription
+        String abilityDescription,
+        Optional<Identifier> texture
 ) {
 
     public static final Codec<CardDefinition> CODEC =
@@ -40,7 +41,10 @@ public record CardDefinition(
                             .forGetter(CardDefinition::ability),
 
                     Codec.STRING.optionalFieldOf("ability_description", "")
-                            .forGetter(CardDefinition::abilityDescription)
+                            .forGetter(CardDefinition::abilityDescription),
+
+                    Identifier.CODEC.optionalFieldOf("texture")
+                            .forGetter(CardDefinition::texture)
 
             ).apply(instance, CardDefinition::new));
 }

@@ -34,6 +34,7 @@ public class MinecraftTCG implements ModInitializer {
 		ModComponents.initialize();
 		ModCommands.initialize();
 		PlayerEssence.initialize();
+		ModSounds.initialize();
 
 		//System.out.println("[MCTCG] Registering card reload listener");
 		ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(

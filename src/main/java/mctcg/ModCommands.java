@@ -163,6 +163,30 @@ public class ModCommands {
                                                         return Command.SINGLE_SUCCESS;
                                                     })
                                     )
+                                    .then(
+                                            Commands.literal("max")
+                                                    .requires(source -> source.permissions()
+                                                            .hasPermission(Permissions.COMMANDS_GAMEMASTER))
+                                                    .executes(context -> {
+                                                        var player = context.getSource().getPlayerOrException();
+
+                                                        player.setAttached(
+                                                                PlayerEssence.ESSENCE,
+                                                                PlayerEssence.MAX_ESSENCE
+                                                        );
+
+                                                        context.getSource().sendSuccess(
+                                                                () -> Component.literal(
+                                                                        "Essence refilled: "
+                                                                                + PlayerEssence.MAX_ESSENCE + "/"
+                                                                                + PlayerEssence.MAX_ESSENCE
+                                                                ),
+                                                                false
+                                                        );
+
+                                                        return Command.SINGLE_SUCCESS;
+                                                    })
+                                    )
                     );
                 }
         );

@@ -1,5 +1,6 @@
 package mctcg.booster;
 
+import mctcg.ModComponents;
 import mctcg.card.CardDefinition;
 import mctcg.card.CardFactory;
 import mctcg.card.CardOrigin;
@@ -8,10 +9,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BoosterPackFactory {
 
@@ -88,6 +86,19 @@ public class BoosterPackFactory {
                 rewards.add(card);
             }
         }
+
+        // Reveal lower-rarity cards first and save the rarest for last.
+        rewards.sort(Comparator.comparingInt(cardStack -> {
+            Identifier cardId = cardStack.get(ModComponents.CARD_ID);
+
+            if (cardId == null) {
+                return -1;
+            }
+
+            return CardRegistry.get(cardId)
+                    .map(definition -> rarityRank(definition.rarity()))
+                    .orElse(-1);
+        }));
 
         return rewards;
     }

@@ -1,0 +1,17 @@
+
+{
+  "name": "Spider",
+  "rarity": "rare",
+  "set": "mctcg:overworld",
+  "number": 5,
+  "entity": "minecraft:spider",
+  "texture": "mctcg:spider_rare_1",
+  "cost": 3,
+  "ability_description": "Grants Night Vision for 10 seconds",
+  "ability": {
+    "type": "mctcg:apply_effect",
+    "effect": "minecraft:night_vision",
+    "duration": 200,
+    "amplifier": 0
+  }
+}
