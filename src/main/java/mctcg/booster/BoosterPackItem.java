@@ -2,6 +2,9 @@ package mctcg.booster;
 
 import mctcg.ModComponents;
 import mctcg.ModSounds;
+import mctcg.network.CardRevealPayload;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -77,15 +80,33 @@ public class BoosterPackItem extends Item {
 
         // Take the next card out of the booster.
         ItemStack revealedCard = remaining.remove(0);
+        ItemStack cardForReveal = revealedCard.copy();
 
         // Give the revealed card before changing or consuming the booster.
         if (!player.getInventory().add(revealedCard)) {
             player.drop(revealedCard, false);
         }
 
+        // Tell the player's client to display the revealed card.
+        if (player instanceof ServerPlayer serverPlayer) {
+            ServerPlayNetworking.send(
+                    serverPlayer,
+                    new CardRevealPayload(cardForReveal)
+            );
+        }
+
         float pitch = 0.95F + player.getRandom().nextFloat() * 0.10F;
 
-        player.playSound(ModSounds.CARD_UNPACKED, 1.0F, pitch);
+        level.playSound(
+                null,
+                player.getX(),
+                player.getY(),
+                player.getZ(),
+                ModSounds.CARD_UNPACKED,
+                player.getSoundSource(),
+                1.0F,
+                pitch
+        );
 
         // Calculate the maximum number of cards from the booster JSON.
         int maxCards = definition.slots()

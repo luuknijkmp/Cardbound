@@ -1,12 +1,15 @@
 package mctcg.client;
 
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import mctcg.network.CardRevealPayload;
 import net.fabricmc.api.ClientModInitializer;
 import mctcg.network.CardActivationPayload;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
+import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
 import mctcg.ModSounds;
-import net.minecraft.sounds.SoundSource;
 
 public class MinecraftTCGClient implements ClientModInitializer {
 	@Override
@@ -37,5 +40,37 @@ public class MinecraftTCGClient implements ClientModInitializer {
 					);
 				}
 		);
+
+		ClientCommandRegistrationCallback.EVENT.register((dispatcher, buildContext) -> {
+			dispatcher.register(
+					LiteralArgumentBuilder.<FabricClientCommandSource>literal("cardreveal")
+							.executes(context -> {
+								Minecraft minecraft = Minecraft.getInstance();
+
+								minecraft.execute(() ->
+										minecraft.gui.setScreen(new CardRevealScreen(minecraft.player.getMainHandItem()))
+								);
+
+								return 1;
+							})
+			);
+		});
+
+		ClientPlayNetworking.registerGlobalReceiver(
+				CardRevealPayload.TYPE,
+				(payload, context) -> {
+					Minecraft minecraft = Minecraft.getInstance();
+
+					minecraft.execute(() -> {
+						if (minecraft.player != null) {
+							minecraft.gui.setScreen(
+									new CardRevealScreen(payload.card())
+							);
+						}
+					});
+				}
+		);
+
+
 	}
 }

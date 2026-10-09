@@ -2,6 +2,7 @@ package mctcg;
 
 import mctcg.booster.BoosterReloadListener;
 import mctcg.essence.PlayerEssence;
+import mctcg.network.CardRevealPayload;
 import mctcg.set.SetReloadListener;
 import net.fabricmc.api.ModInitializer;
 
@@ -55,6 +56,11 @@ public class MinecraftTCG implements ModInitializer {
 		PayloadTypeRegistry.clientboundPlay().register(
 				CardActivationPayload.TYPE,
 				CardActivationPayload.CODEC
+		);
+
+		PayloadTypeRegistry.clientboundPlay().register(
+				CardRevealPayload.TYPE,
+				CardRevealPayload.CODEC
 		);
 	}
 

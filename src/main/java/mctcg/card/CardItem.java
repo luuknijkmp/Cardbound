@@ -1,6 +1,7 @@
 package mctcg.card;
 
 import mctcg.ModComponents;
+import mctcg.network.CardRevealPayload;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -30,7 +31,20 @@ public class CardItem extends Item {
         ItemStack stack = player.getItemInHand(hand);
 
         // Card abilities are handled on the server.
+        // Card abilities and previews are handled on the server.
         if (level.isClientSide()) {
+            return InteractionResult.SUCCESS;
+        }
+
+// Shift + right-click opens the card preview instead of activating it.
+        if (player.isShiftKeyDown()) {
+            if (player instanceof ServerPlayer serverPlayer) {
+                ServerPlayNetworking.send(
+                        serverPlayer,
+                        new CardRevealPayload(stack.copy())
+                );
+            }
+
             return InteractionResult.SUCCESS;
         }
 
