@@ -1,0 +1,17 @@
+
+{
+  "name": "Creeper Cataclysm",
+  "rarity": "legendary",
+  "set": "mctcg:origins_of_the_realm",
+  "number": 4,
+  "entity": "minecraft:creeper",
+  "texture": "mctcg:004_creeper_cataclysm",
+  "cost": 18,
+  "ability_description": "Summons a massive explosion around you. | WIP",
+  "ability": {
+    "type": "mctcg:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

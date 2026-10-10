@@ -1,0 +1,16 @@
+{
+  "name": "Rotten Grasp",
+  "rarity": "uncommon",
+  "set": "mctcg:origins_of_the_realm",
+  "number": 6,
+  "entity": "minecraft:zombie",
+  "texture": "mctcg:006_rotten_grasp",
+  "cost": 5,
+  "ability_description": "Slowness II on target for 8 seconds. | WIP",
+  "ability": {
+    "type": "mctcg:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

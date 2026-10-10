@@ -1,0 +1,16 @@
+{
+  "name": "Friendly Allay",
+  "rarity": "common",
+  "set": "mctcg:origins_of_the_realm",
+  "number": 29,
+  "entity": "minecraft:allay",
+  "texture": "mctcg:029_friendly_allay",
+  "cost": 3,
+  "ability_description": "Instantly collect nearby dropped items. | WIP",
+  "ability": {
+    "type": "mctcg:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

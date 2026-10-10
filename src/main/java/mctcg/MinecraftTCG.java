@@ -36,6 +36,7 @@ public class MinecraftTCG implements ModInitializer {
 		ModCommands.initialize();
 		PlayerEssence.initialize();
 		ModSounds.initialize();
+		ModCreativeTabs.initialize();
 
 		//System.out.println("[MCTCG] Registering card reload listener");
 		ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(
@@ -62,6 +63,8 @@ public class MinecraftTCG implements ModInitializer {
 				CardRevealPayload.TYPE,
 				CardRevealPayload.CODEC
 		);
+
+
 	}
 
 	public static Identifier id(String path) {

@@ -1,0 +1,16 @@
+{
+  "name": "Guardian Wolf",
+  "rarity": "epic",
+  "set": "mctcg:origins_of_the_realm",
+  "number": 18,
+  "entity": "minecraft:wolf",
+  "texture": "mctcg:018_guardian_wolf",
+  "cost": 13,
+  "ability_description": "Gain Guard III for 12 seconds. | WIP",
+  "ability": {
+    "type": "mctcg:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

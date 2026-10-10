@@ -1,0 +1,16 @@
+{
+  "name": "Void Walker",
+  "rarity": "rare",
+  "set": "mctcg:origins_of_the_realm",
+  "number": 13,
+  "entity": "minecraft:enderman",
+  "texture": "mctcg:013_void_walker",
+  "cost": 9,
+  "ability_description": "Teleport behind targeted enemy and gain Speed II. | WIP",
+  "ability": {
+    "type": "mctcg:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mctcg:item/005_wandering_zombie"
+  }
+}

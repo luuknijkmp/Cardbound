@@ -1,0 +1,16 @@
+{
+  "name": "Gale Force",
+  "rarity": "uncommon",
+  "set": "mctcg:origins_of_the_realm",
+  "number": 27,
+  "entity": "minecraft:breeze",
+  "texture": "mctcg:027_gale_force",
+  "cost": 6,
+  "ability_description": "Push nearby enemies away. | WIP",
+  "ability": {
+    "type": "mctcg:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mctcg:item/008_last_of_the_living"
+  }
+}

@@ -5,6 +5,7 @@ import net.minecraft.resources.Identifier;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 public class BoosterRegistry {
 
@@ -20,5 +21,9 @@ public class BoosterRegistry {
 
     public static void replaceAll(Map<Identifier, BoosterDefinition> newBoosters) {
         boosters = Map.copyOf(newBoosters);
+    }
+
+    public static Set<Identifier> getAllIds() {
+        return boosters.keySet();
     }
 }

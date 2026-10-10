@@ -1,0 +1,16 @@
+{
+  "name": "Wind Whisper",
+  "rarity": "common",
+  "set": "mctcg:origins_of_the_realm",
+  "number": 26,
+  "entity": "minecraft:breeze",
+  "texture": "mctcg:026_wind_whisper",
+  "cost": 3,
+  "ability_description": "Jump Boost II for 20 seconds.",
+  "ability": {
+    "type": "mctcg:apply_effect",
+    "effect": "minecraft:jump_boost",
+    "duration": 400,
+    "amplifier": 1
+  }
+}

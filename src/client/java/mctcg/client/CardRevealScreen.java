@@ -4,8 +4,10 @@ import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.input.MouseButtonEvent;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 
 public class CardRevealScreen extends Screen {
@@ -22,7 +24,7 @@ public class CardRevealScreen extends Screen {
 
     // Fly-in animation settings.
     private static final float ANIMATION_DURATION = 5.0F;
-    private static final int ANIMATION_DISTANCE = 300;
+    private static final int ANIMATION_DISTANCE = 300; //DEFAULT: 300
 
     private float animationTicks = 0.0F;
 
@@ -68,15 +70,38 @@ public class CardRevealScreen extends Screen {
         // DRAW CARD
         // ====================================
 
-        graphics.pose().pushMatrix();
+        // Draw the original 32x32 PNG directly at 256x256.
+        Identifier modelId = revealedCard.get(DataComponents.ITEM_MODEL);
 
-        graphics.pose().translate(cardX, cardY);
-        graphics.pose().scale(CARD_SCALE, CARD_SCALE);
+        if (modelId != null) {
+            Identifier textureId = Identifier.fromNamespaceAndPath(
+                    modelId.getNamespace(),
+                    "textures/item/" + modelId.getPath() + ".png"
+            );
 
-        graphics.item(this.revealedCard, 0, 0);
+            graphics.blit(
+                    RenderPipelines.GUI_TEXTURED,
+                    textureId,
+                    cardX,
+                    cardY,
+                    0.0F,
+                    0.0F,
+                    cardSize,  // Display width: 256
+                    cardSize,  // Display height: 256
+                    32,        // Source width: 32
+                    32,        // Source height: 32
+                    32,        // Texture width: 32
+                    32         // Texture height: 32
+            );
 
-        graphics.pose().popMatrix();
-
+        } else {
+            // Fallback for cards without custom artwork.
+            graphics.pose().pushMatrix();
+            graphics.pose().translate(cardX, cardY);
+            graphics.pose().scale(CARD_SCALE, CARD_SCALE);
+            graphics.item(revealedCard, 0, 0);
+            graphics.pose().popMatrix();
+        }
         // ====================================
         // DRAW INFORMATION
         // ====================================

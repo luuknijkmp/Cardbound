@@ -1,0 +1,16 @@
+{
+  "name": "Ender Wanderer",
+  "rarity": "common",
+  "set": "mctcg:origins_of_the_realm",
+  "number": 11,
+  "entity": "minecraft:enderman",
+  "texture": "mctcg:011_ender_wanderer",
+  "cost": 4,
+  "ability_description": "Teleport 8 blocks forward safely. | WIP",
+  "ability": {
+    "type": "mctcg:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}
