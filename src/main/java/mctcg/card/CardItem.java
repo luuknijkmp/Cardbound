@@ -41,7 +41,7 @@ public class CardItem extends Item {
             if (player instanceof ServerPlayer serverPlayer) {
                 ServerPlayNetworking.send(
                         serverPlayer,
-                        new CardRevealPayload(stack.copy())
+                        new CardRevealPayload(stack.copy(), true)
                 );
             }
 
@@ -90,7 +90,7 @@ public class CardItem extends Item {
         int currentEssence = player.getAttachedOrCreate(PlayerEssence.ESSENCE);
         int cost = definition.cost();
 
-        if (currentEssence < cost) {
+        if (!player.isCreative() && currentEssence < cost) {
             return InteractionResult.FAIL;
         }
 
@@ -107,8 +107,11 @@ public class CardItem extends Item {
             return InteractionResult.FAIL;
         }
 
-// Only spend Essence after successful activation.
-        player.setAttached(PlayerEssence.ESSENCE, currentEssence - cost);
+// Creative Mode has unlimited Essence.
+// Only consume Essence in other game modes.
+        if (!player.isCreative()) {
+            player.setAttached(PlayerEssence.ESSENCE, currentEssence - cost);
+        }
 
 // Play the card activation animation for the player.
         if (player instanceof ServerPlayer serverPlayer) {

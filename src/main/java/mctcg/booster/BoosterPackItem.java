@@ -91,7 +91,7 @@ public class BoosterPackItem extends Item {
         if (player instanceof ServerPlayer serverPlayer) {
             ServerPlayNetworking.send(
                     serverPlayer,
-                    new CardRevealPayload(cardForReveal)
+                    new CardRevealPayload(cardForReveal, false)
             );
         }
 

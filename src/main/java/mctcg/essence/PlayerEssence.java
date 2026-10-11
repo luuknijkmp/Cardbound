@@ -3,7 +3,9 @@ package mctcg.essence;
 
 import com.mojang.serialization.Codec;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
+import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.resources.Identifier;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 
@@ -18,6 +20,10 @@ public final class PlayerEssence {
                     builder -> builder
                             .initializer(() -> MAX_ESSENCE)
                             .persistent(Codec.INT)
+                            .syncWith(
+                                    ByteBufCodecs.INT,
+                                    AttachmentSyncPredicate.targetOnly()
+                            )
             );
 
     private PlayerEssence() {

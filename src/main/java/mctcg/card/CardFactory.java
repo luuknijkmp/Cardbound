@@ -51,9 +51,10 @@ public class CardFactory {
 
             stack.set(
                     DataComponents.CUSTOM_NAME,
-                    Component.literal(definition.name() + " Card").withStyle(style -> style.withItalic(false))
+                    Component.literal(definition.name() + " Card")
+                            .withStyle(getRarityColor(definition.rarity()))
+                            .withStyle(style -> style.withItalic(false))
             );
-
 
             // Line 1: Rarity [Holo] | Set | Number | Origin
             Component infoLine = Component.literal(

@@ -1,6 +1,7 @@
 package mctcg.client;
 
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import mctcg.client.config.ModConfig;
 import mctcg.network.CardRevealPayload;
 import net.fabricmc.api.ClientModInitializer;
 import mctcg.network.CardActivationPayload;
@@ -14,6 +15,10 @@ import mctcg.ModSounds;
 public class MinecraftTCGClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
+		ModConfig.load();
+		EssenceHud.initialize();
+		ModKeybindings.initialize();
+
 		ClientPlayNetworking.registerGlobalReceiver(
 				CardActivationPayload.TYPE,
 				(payload, context) -> {
@@ -62,7 +67,9 @@ public class MinecraftTCGClient implements ClientModInitializer {
 					Minecraft minecraft = Minecraft.getInstance();
 
 					minecraft.execute(() -> {
-						if (minecraft.player != null) {
+						if (minecraft.player != null
+								&& (payload.manual() || ModConfig.get().showCardReveal)) {
+
 							minecraft.gui.setScreen(
 									new CardRevealScreen(payload.card())
 							);
@@ -70,7 +77,6 @@ public class MinecraftTCGClient implements ClientModInitializer {
 					});
 				}
 		);
-
 
 	}
 }
