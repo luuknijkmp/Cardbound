@@ -1,0 +1,12 @@
+{
+  "card_activate": {
+    "sounds": [
+      "cardbound:card_activate"
+    ]
+  },
+  "card_unpacked": {
+    "sounds": [
+      "cardbound:card_unpacked"
+    ]
+  }
+}

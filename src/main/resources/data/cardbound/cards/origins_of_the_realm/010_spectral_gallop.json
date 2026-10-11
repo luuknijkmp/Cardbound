@@ -1,0 +1,16 @@
+{
+  "name": "Spectral Gallop",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 10,
+  "entity": "minecraft:skeleton_horse",
+  "texture": "cardbound:010_spectral_gallop",
+  "cost": 9,
+  "ability_description": "Speed III and jump boost for 12 seconds. | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

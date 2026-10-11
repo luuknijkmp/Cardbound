@@ -1,0 +1,16 @@
+{
+  "name": "Last of the Living",
+  "rarity": "epic",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 8,
+  "entity": "minecraft:zombie",
+  "texture": "cardbound:008_last_of_the_living",
+  "cost": 16,
+  "ability_description": "Survive one lethal hit at 1 HP within 20 seconds. | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

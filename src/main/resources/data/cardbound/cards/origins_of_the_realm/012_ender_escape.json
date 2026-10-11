@@ -1,0 +1,16 @@
+{
+  "name": "Ender Escape",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 12,
+  "entity": "minecraft:enderman",
+  "texture": "cardbound:012_ender_escape",
+  "cost": 6,
+  "ability_description": "Teleport away from your last attacker. | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

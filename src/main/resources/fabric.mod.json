@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "minecraft-tcg",
+	"id": "cardbound",
 	"version": "${version}",
 	"name": "Cardbound",
 	"description": "Discover powerful cards and unleash their abilities throughout your Minecraft world.",
@@ -12,23 +12,23 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/mctcg/icon.png",
+	"icon": "assets/cardbound/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"mctcg.MinecraftTCG"
+			"cardbound.Cardbound"
 		],
 		"client": [
-			"mctcg.client.MinecraftTCGClient"
+			"cardbound.client.CardboundClient"
 		],
 		"modmenu": [
-			"mctcg.client.compat.ModMenuIntegration"
+			"cardbound.client.compat.ModMenuIntegration"
 		]
 	},
 	"mixins": [
-		"minecraft-tcg.mixins.json",
+		"cardbound.mixins.json",
 		{
-			"config": "minecraft-tcg.client.mixins.json",
+			"config": "cardbound.client.mixins.json",
 			"environment": "client"
 		}
 	],

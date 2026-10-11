@@ -1,0 +1,16 @@
+{
+  "name": "Toxic Ambush",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 22,
+  "entity": "minecraft:cave_spider",
+  "texture": "cardbound:022_toxic_ambush",
+  "cost": 9,
+  "ability_description": "Poison II and Slowness I on target. | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

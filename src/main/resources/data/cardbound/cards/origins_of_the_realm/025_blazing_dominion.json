@@ -1,0 +1,16 @@
+{
+  "name": "Blazing Dominion",
+  "rarity": "epic",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 25,
+  "entity": "minecraft:blaze",
+  "texture": "cardbound:025_blazing_dominion",
+  "cost": 14,
+  "ability_description": "Create a damaging ring of fire around you. | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

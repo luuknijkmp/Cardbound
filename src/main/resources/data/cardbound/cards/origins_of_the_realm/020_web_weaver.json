@@ -1,0 +1,16 @@
+{
+  "name": "Web Weaver",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 20,
+  "entity": "minecraft:spider",
+  "texture": "cardbound:020_web_weaver",
+  "cost": 6,
+  "ability_description": "Trap target in cobwebs for 5 seconds. | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

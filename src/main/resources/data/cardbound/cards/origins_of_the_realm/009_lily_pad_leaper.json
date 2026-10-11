@@ -1,0 +1,16 @@
+{
+  "name": "Lily Pad Leaper",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 9,
+  "entity": "minecraft:frog",
+  "texture": "cardbound:009_lily_pad_leaper",
+  "cost": 3,
+  "ability_description": "Jump Boost II and Water Breathing for 20 seconds. | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Armadillo Shell",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 31,
+  "entity": "minecraft:armadillo",
+  "texture": "cardbound:031_armadillo_shell",
+  "cost": 4,
+  "ability_description": "Resistance I for 15 seconds.",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:resistance",
+    "duration": 300,
+    "amplifier": 0
+  }
+}

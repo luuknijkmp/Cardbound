@@ -1,0 +1,16 @@
+{
+  "name": "Undead Horde",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 7,
+  "entity": "minecraft:zombie",
+  "texture": "cardbound:007_undead_horde",
+  "cost": 10,
+  "ability_description": "Summon 3 temporary allied zombies. | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

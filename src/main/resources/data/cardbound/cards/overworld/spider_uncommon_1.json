@@ -1,0 +1,17 @@
+
+{
+  "name": "Spider",
+  "rarity": "uncommon",
+  "set": "cardbound:overworld",
+  "number": 6,
+  "entity": "minecraft:spider",
+  "texture": "cardbound:spider_uncommon_1",
+  "cost": 3,
+  "ability_description": "Grants Night Vision for 10 seconds",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:night_vision",
+    "duration": 200,
+    "amplifier": 0
+  }
+}

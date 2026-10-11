@@ -1,0 +1,17 @@
+
+{
+  "name": "Unstable Creeper",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 2,
+  "entity": "minecraft:creeper",
+  "texture": "cardbound:002_unstable_creeper",
+  "cost": 6,
+  "ability_description": "Small explosion damages nearby enemies. | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Howl",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 17,
+  "entity": "minecraft:wolf",
+  "texture": "cardbound:017_howl",
+  "cost": 10,
+  "ability_description": "Summon 2 temporary allied wolves. | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

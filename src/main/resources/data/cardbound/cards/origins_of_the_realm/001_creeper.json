@@ -1,0 +1,17 @@
+
+{
+  "name": "Creeper",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 1,
+  "entity": "minecraft:creeper",
+  "texture": "cardbound:001_creeper",
+  "cost": 3,
+  "ability_description": "Grants Speed 1 for 20 seconds",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

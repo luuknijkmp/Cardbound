@@ -1,0 +1,16 @@
+{
+  "name": "Inferno Burst",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 24,
+  "entity": "minecraft:blaze",
+  "texture": "cardbound:024_inferno_burst",
+  "cost": 10,
+  "ability_description": "Launch a volley of 3 fireballs. | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

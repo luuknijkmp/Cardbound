@@ -1,0 +1,16 @@
+{
+  "name": "Night Flutter",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 33,
+  "entity": "minecraft:bat",
+  "texture": "cardbound:033_night_flutter",
+  "cost": 2,
+  "ability_description": "Night Vision for 45 seconds.",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:night_vision",
+    "duration": 900,
+    "amplifier": 0
+  }
+}
