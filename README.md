@@ -1,4 +1,4 @@
-# Minecraft TCG
+# Cardbound
 
 ## Setup
 
