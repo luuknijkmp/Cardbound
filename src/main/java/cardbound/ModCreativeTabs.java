@@ -44,6 +44,7 @@ public class ModCreativeTabs {
                                 output.accept(booster);
                             }
                         }
+                        output.accept(ModItems.VIAL_OF_ESSENCE);
                     })
                     .build()
     );

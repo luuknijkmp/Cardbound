@@ -1,0 +1,16 @@
+{
+  "name": "Silver Swarm",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 70,
+  "entity": "minecraft:silverfish",
+  "texture": "cardbound:070_silver_swarm",
+  "cost": 5,
+  "ability_description": "Summon 2 temporary silverfish | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

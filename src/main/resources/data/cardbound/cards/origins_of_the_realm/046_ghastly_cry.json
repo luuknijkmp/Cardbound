@@ -1,0 +1,16 @@
+{
+  "name": "Ghastly Cry",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 46,
+  "entity": "minecraft:ghast",
+  "texture": "cardbound:046_ghastly_cry",
+  "cost": 8,
+  "ability_description": "Launch an explosive fireball | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Ancient Shell",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 78,
+  "entity": "minecraft:turtle",
+  "texture": "cardbound:078_ancient_shell",
+  "cost": 8,
+  "ability_description": "Resistance II and Water Breathing for 15 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

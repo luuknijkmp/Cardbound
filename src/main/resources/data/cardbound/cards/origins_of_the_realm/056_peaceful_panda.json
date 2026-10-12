@@ -1,0 +1,16 @@
+{
+  "name": "Peaceful Panda",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 56,
+  "entity": "minecraft:panda",
+  "texture": "cardbound:056_peaceful_panda",
+  "cost": 5,
+  "ability_description": "Regeneration I for 15 seconds",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:regeneration",
+    "duration": 300,
+    "amplifier": 0
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Frozen Barrage",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 74,
+  "entity": "minecraft:snow_golem",
+  "texture": "cardbound:074_frozen_barrage",
+  "cost": 7,
+  "ability_description": "Slowness II on nearby enemies for 8 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

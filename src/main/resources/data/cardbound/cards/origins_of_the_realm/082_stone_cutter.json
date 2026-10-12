@@ -1,0 +1,16 @@
+{
+  "name": "Stone Cutter",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 82,
+  "entity": "minecraft:player",
+  "texture": "cardbound:082_stone_cutter",
+  "cost": 6,
+  "ability_description": "Open a stonecutter anywhere | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

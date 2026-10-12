@@ -1,0 +1,16 @@
+{
+  "name": "Magma Eruption",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 55,
+  "entity": "minecraft:magma_cube",
+  "texture": "cardbound:055_magma_eruption",
+  "cost": 11,
+  "ability_description": "Create a temporary damaging magma zone | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

@@ -1,0 +1,50 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PDP",
+    "IVI",
+    "PVP"
+  ],
+  "key": {
+    "P": "minecraft:paper",
+    "D": "minecraft:diamond",
+    "V": "cardbound:vial_of_essence",
+    "I": "minecraft:ink_sac"
+  },
+  "result": {
+    "id": "cardbound:booster_pack",
+    "count": 1,
+    "components": {
+      "cardbound:pack_id": "cardbound:origins_of_the_realm",
+      "minecraft:item_model": "cardbound:origins_of_the_realm",
+      "minecraft:custom_name": {
+        "text": "Origins of the Realm Booster Pack",
+        "italic": false
+      },
+      "minecraft:lore": [
+        {
+          "text": "",
+          "extra": [
+            {
+              "text": "Cards: ",
+              "color": "gray"
+            },
+            {
+              "text": "5/5",
+              "color": "white"
+            }
+          ],
+          "italic": false
+        }
+      ],
+      "minecraft:tooltip_display": {
+        "hide_tooltip": false,
+        "hidden_components": [
+          "minecraft:container"
+        ]
+      }
+    }
+  },
+  "show_notification": true
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Molten Core",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 54,
+  "entity": "minecraft:magma_cube",
+  "texture": "cardbound:054_molten_core",
+  "cost": 7,
+  "ability_description": "Fire Resistance and Strength I for 12 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

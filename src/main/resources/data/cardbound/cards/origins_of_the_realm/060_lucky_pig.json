@@ -1,0 +1,16 @@
+{
+  "name": "Lucky Pig",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 60,
+  "entity": "minecraft:pig",
+  "texture": "cardbound:060_lucky_pig",
+  "cost": 3,
+  "ability_description": "Restore 3 health instantly | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

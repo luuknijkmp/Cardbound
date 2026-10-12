@@ -1,0 +1,16 @@
+{
+  "name": "Golden Snout",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 61,
+  "entity": "minecraft:pig",
+  "texture": "cardbound:061_golden_snout",
+  "cost": 9,
+  "ability_description": "Gain Absorption II for 30 seconds",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:absorption",
+    "duration": 600,
+    "amplifier": 1
+  }
+}

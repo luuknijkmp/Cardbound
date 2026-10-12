@@ -1,0 +1,16 @@
+{
+  "name": "Foxfire Trickster",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 45,
+  "entity": "minecraft:fox",
+  "texture": "cardbound:045_foxfire_trickster",
+  "cost": 9,
+  "ability_description": "Invisibility and Speed II for 10 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

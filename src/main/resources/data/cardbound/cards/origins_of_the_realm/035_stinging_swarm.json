@@ -1,0 +1,16 @@
+{
+  "name": "Stinging Swarm",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 35,
+  "entity": "minecraft:bee",
+  "texture": "cardbound:035_stinging_swarm",
+  "cost": 7,
+  "ability_description": "Poison nearby enemies for 5 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

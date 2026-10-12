@@ -1,0 +1,16 @@
+{
+  "name": "Desert Wanderer",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 50,
+  "entity": "minecraft:husk",
+  "texture": "cardbound:050_desert_wanderer",
+  "cost": 4,
+  "ability_description": "Hunger on target for 12 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

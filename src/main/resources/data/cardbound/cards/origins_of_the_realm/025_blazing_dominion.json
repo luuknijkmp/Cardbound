@@ -6,7 +6,7 @@
   "entity": "minecraft:blaze",
   "texture": "cardbound:025_blazing_dominion",
   "cost": 14,
-  "ability_description": "Create a damaging ring of fire around you. | WIP",
+  "ability_description": "Create a damaging ring of fire around you | WIP",
   "ability": {
     "type": "cardbound:apply_effect",
     "effect": "minecraft:speed",

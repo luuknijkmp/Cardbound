@@ -6,6 +6,7 @@ import cardbound.network.CardRevealPayload;
 import cardbound.set.SetReloadListener;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.resource.v1.reloader.ResourceReloaderKeys;
 import net.minecraft.resources.Identifier;
 
 import org.slf4j.Logger;
@@ -18,7 +19,7 @@ import cardbound.network.CardActivationPayload;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 
 public class Cardbound implements ModInitializer {
-	public static final String MOD_ID = "minecraft-tcg";
+	public static final String MOD_ID = "cardbound";
 
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
@@ -31,6 +32,8 @@ public class Cardbound implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		ModItems.initialize();
+		// ModMobDrops.initialize(); <-- UNCOMMENT TO ENABLE VAILS OF ESSENCE IN MOB DROPS
+		ModChestLoot.initialize();
 		ModComponents.initialize();
 		ModCommands.initialize();
 		PlayerEssence.initialize();
@@ -61,6 +64,18 @@ public class Cardbound implements ModInitializer {
 		PayloadTypeRegistry.clientboundPlay().register(
 				CardRevealPayload.TYPE,
 				CardRevealPayload.CODEC
+		);
+
+		var serverDataLoader = ResourceLoader.get(PackType.SERVER_DATA);
+
+		Identifier chestLootListenerId = Identifier.fromNamespaceAndPath(
+				"cardbound",
+				"chest_loot"
+		);
+
+		serverDataLoader.registerReloadListener(
+				chestLootListenerId,
+				new ChestLootReloadListener()
 		);
 
 

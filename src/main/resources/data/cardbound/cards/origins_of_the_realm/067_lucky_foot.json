@@ -1,0 +1,16 @@
+{
+  "name": "Lucky Foot",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 67,
+  "entity": "minecraft:rabbit",
+  "texture": "cardbound:067_lucky_foot",
+  "cost": 6,
+  "ability_description": "Speed II and Luck for 20 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

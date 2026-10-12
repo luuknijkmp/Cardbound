@@ -6,7 +6,7 @@
   "entity": "minecraft:blaze",
   "texture": "cardbound:023_blazing_ember",
   "cost": 5,
-  "ability_description": "Fire Resistance for 30 seconds.",
+  "ability_description": "Fire Resistance for 30 seconds",
   "ability": {
     "type": "cardbound:apply_effect",
     "effect": "minecraft:fire_resistance",

@@ -1,0 +1,16 @@
+{
+  "name": "Luminous Ink",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 49,
+  "entity": "minecraft:glow_squid",
+  "texture": "cardbound:049_luminous_ink",
+  "cost": 5,
+  "ability_description": "Apply Glowing to nearby enemies for 20 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

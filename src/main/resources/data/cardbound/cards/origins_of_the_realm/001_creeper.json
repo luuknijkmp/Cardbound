@@ -1,4 +1,3 @@
-
 {
   "name": "Creeper",
   "rarity": "common",
@@ -7,7 +6,7 @@
   "entity": "minecraft:creeper",
   "texture": "cardbound:001_creeper",
   "cost": 3,
-  "ability_description": "Grants Speed 1 for 20 seconds",
+  "ability_description": "Speed I for 20 seconds",
   "ability": {
     "type": "cardbound:apply_effect",
     "effect": "minecraft:speed",

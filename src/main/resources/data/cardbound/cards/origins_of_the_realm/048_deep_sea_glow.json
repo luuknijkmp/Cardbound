@@ -1,0 +1,16 @@
+{
+  "name": "Deep Sea Glow",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 48,
+  "entity": "minecraft:glow_squid",
+  "texture": "cardbound:048_deep_sea_glow",
+  "cost": 3,
+  "ability_description": "Night Vision for 60 seconds",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:night_vision",
+    "duration": 1200,
+    "amplifier": 0
+  }
+}

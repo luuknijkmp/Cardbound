@@ -6,7 +6,7 @@
   "entity": "minecraft:wolf",
   "texture": "cardbound:017_howl",
   "cost": 10,
-  "ability_description": "Summon 2 temporary allied wolves. | WIP",
+  "ability_description": "Summon 2 temporary allied wolves | WIP",
   "ability": {
     "type": "cardbound:apply_effect",
     "effect": "minecraft:speed",

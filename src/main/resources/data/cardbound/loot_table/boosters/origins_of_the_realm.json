@@ -1,0 +1,49 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "cardbound:booster_pack",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "cardbound:pack_id": "cardbound:origins_of_the_realm",
+                "minecraft:item_model": "cardbound:origins_of_the_realm",
+                "minecraft:custom_name": {
+                  "text": "Origins of the Realm Booster Pack",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "",
+                    "extra": [
+                      {
+                        "text": "Cards: ",
+                        "color": "gray"
+                      },
+                      {
+                        "text": "5/5",
+                        "color": "white"
+                      }
+                    ],
+                    "italic": false
+                  }
+                ],
+                "minecraft:tooltip_display": {
+                  "hide_tooltip": false,
+                  "hidden_components": [
+                    "minecraft:container"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

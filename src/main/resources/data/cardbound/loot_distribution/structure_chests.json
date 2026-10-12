@@ -1,0 +1,99 @@
+{
+  "chests": {
+    "minecraft:chests/simple_dungeon": {
+      "vial_chance": 0.08,
+      "booster_chance": 0.04,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/abandoned_mineshaft": {
+      "vial_chance": 0.08,
+      "booster_chance": 0.04,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/shipwreck_treasure": {
+      "vial_chance": 0.08,
+      "booster_chance": 0.04,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/desert_pyramid": {
+      "vial_chance": 0.12,
+      "booster_chance": 0.06,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/jungle_temple": {
+      "vial_chance": 0.12,
+      "booster_chance": 0.06,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/stronghold_corridor": {
+      "vial_chance": 0.16,
+      "booster_chance": 0.08,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/nether_bridge": {
+      "vial_chance": 0.16,
+      "booster_chance": 0.08,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/ancient_city": {
+      "vial_chance": 0.25,
+      "booster_chance": 0.12,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/bastion_treasure": {
+      "vial_chance": 0.25,
+      "booster_chance": 0.12,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/end_city_treasure": {
+      "vial_chance": 0.25,
+      "booster_chance": 0.12,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/ruined_portal": {
+      "vial_chance": 0.20,
+      "booster_chance": 0.05,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/buried_treasure": {
+      "vial_chance": 0.30,
+      "booster_chance": 0.08,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/shipwreck_supply": {
+      "vial_chance": 0.20,
+      "booster_chance": 0.05,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/shipwreck_map": {
+      "vial_chance": 0.20,
+      "booster_chance": 0.05,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/village/village_plains_house": {
+      "vial_chance": 0.15,
+      "booster_chance": 0.03,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/village/village_desert_house": {
+      "vial_chance": 0.15,
+      "booster_chance": 0.03,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/village/village_savanna_house": {
+      "vial_chance": 0.15,
+      "booster_chance": 0.03,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/village/village_snowy_house": {
+      "vial_chance": 0.15,
+      "booster_chance": 0.03,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    },
+    "minecraft:chests/village/village_taiga_house": {
+      "vial_chance": 0.15,
+      "booster_chance": 0.03,
+      "boosters": ["cardbound:origins_of_the_realm"]
+    }
+  }
+}

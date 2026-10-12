@@ -6,7 +6,7 @@
   "entity": "minecraft:breeze",
   "texture": "cardbound:027_gale_force",
   "cost": 6,
-  "ability_description": "Push nearby enemies away. | WIP",
+  "ability_description": "Push nearby enemies away | WIP",
   "ability": {
     "type": "cardbound:apply_effect",
     "effect": "minecraft:speed",

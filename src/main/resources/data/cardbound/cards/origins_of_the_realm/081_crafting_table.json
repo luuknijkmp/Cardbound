@@ -1,0 +1,16 @@
+{
+  "name": "Crafting Table",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 81,
+  "entity": "minecraft:player",
+  "texture": "cardbound:081_crafting_table",
+  "cost": 6,
+  "ability_description": "Open a crafting table anywhere | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

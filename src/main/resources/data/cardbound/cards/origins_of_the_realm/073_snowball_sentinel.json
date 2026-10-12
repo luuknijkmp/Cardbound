@@ -1,0 +1,16 @@
+{
+  "name": "Snowball Sentinel",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 73,
+  "entity": "minecraft:snow_golem",
+  "texture": "cardbound:073_snowball_sentinel",
+  "cost": 4,
+  "ability_description": "Launch 5 rapid snowballs with knockback | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

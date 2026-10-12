@@ -1,0 +1,16 @@
+{
+  "name": "Feline Reflexes",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 37,
+  "entity": "minecraft:cat",
+  "texture": "cardbound:037_feline_reflexes",
+  "cost": 6,
+  "ability_description": "Speed II and Jump Boost I for 15 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

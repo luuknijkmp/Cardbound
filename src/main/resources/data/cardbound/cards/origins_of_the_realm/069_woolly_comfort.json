@@ -1,0 +1,16 @@
+{
+  "name": "Woolly Comfort",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 69,
+  "entity": "minecraft:sheep",
+  "texture": "cardbound:069_woolly_comfort",
+  "cost": 4,
+  "ability_description": "Absorption I for 30 seconds",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:absorption",
+    "duration": 600,
+    "amplifier": 0
+  }
+}

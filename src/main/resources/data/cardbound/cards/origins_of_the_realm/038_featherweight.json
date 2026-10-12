@@ -1,0 +1,16 @@
+{
+  "name": "Featherweight",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 38,
+  "entity": "minecraft:chicken",
+  "texture": "cardbound:038_featherweight",
+  "cost": 2,
+  "ability_description": "Slow Falling for 30 seconds",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:slow_falling",
+    "duration": 600,
+    "amplifier": 0
+  }
+}

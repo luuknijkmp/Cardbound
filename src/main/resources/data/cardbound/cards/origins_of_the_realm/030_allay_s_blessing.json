@@ -1,0 +1,16 @@
+{
+  "name": "Allay's Blessing",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 30,
+  "entity": "minecraft:allay",
+  "texture": "cardbound:030_allay_s_blessing",
+  "cost": 8,
+  "ability_description": "Restore 5 Essence | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "cardbound:item/origins_of_the_realm"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "River Runner",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 68,
+  "entity": "minecraft:salmon",
+  "texture": "cardbound:068_river_runner",
+  "cost": 3,
+  "ability_description": "Water Breathing and Speed I for 25 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

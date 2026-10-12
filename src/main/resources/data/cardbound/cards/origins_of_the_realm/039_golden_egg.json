@@ -1,0 +1,16 @@
+{
+  "name": "Golden Egg",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 39,
+  "entity": "minecraft:chicken",
+  "texture": "cardbound:039_golden_egg",
+  "cost": 10,
+  "ability_description": "Restore 6 health and 3 Essence | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

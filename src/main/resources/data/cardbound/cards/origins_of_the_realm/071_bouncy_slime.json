@@ -1,0 +1,16 @@
+{
+  "name": "Bouncy Slime",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 71,
+  "entity": "minecraft:slime",
+  "texture": "cardbound:071_bouncy_slime",
+  "cost": 4,
+  "ability_description": "Jump Boost II and fall damage immunity for 20 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

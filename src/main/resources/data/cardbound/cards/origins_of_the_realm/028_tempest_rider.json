@@ -6,7 +6,7 @@
   "entity": "minecraft:breeze",
   "texture": "cardbound:028_tempest_rider",
   "cost": 8,
-  "ability_description": "Launch yourself upward with Slow Falling. | WIP",
+  "ability_description": "Launch yourself upward with Slow Falling | WIP",
   "ability": {
     "type": "cardbound:apply_effect",
     "effect": "minecraft:speed",

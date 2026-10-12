@@ -1,0 +1,16 @@
+{
+  "name": "Toxic Balloon",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 65,
+  "entity": "minecraft:pufferfish",
+  "texture": "cardbound:065_toxic_balloon",
+  "cost": 7,
+  "ability_description": "Poison II to nearby enemies | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

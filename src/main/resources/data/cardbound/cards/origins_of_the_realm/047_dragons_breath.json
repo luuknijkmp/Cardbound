@@ -1,0 +1,16 @@
+{
+  "name": "Dragon's Breath",
+  "rarity": "legendary",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 47,
+  "entity": "minecraft:ender_dragon",
+  "texture": "cardbound:047_dragons_breath",
+  "cost": 19,
+  "ability_description": "Create a lingering cloud of dragon breath that damages enemies | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

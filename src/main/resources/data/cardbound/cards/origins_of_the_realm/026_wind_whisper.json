@@ -6,7 +6,7 @@
   "entity": "minecraft:breeze",
   "texture": "cardbound:026_wind_whisper",
   "cost": 3,
-  "ability_description": "Jump Boost II for 20 seconds.",
+  "ability_description": "Jump Boost II for 20 seconds",
   "ability": {
     "type": "cardbound:apply_effect",
     "effect": "minecraft:jump_boost",

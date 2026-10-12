@@ -1,0 +1,16 @@
+{
+  "name": "Panda's Fury",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 57,
+  "entity": "minecraft:panda",
+  "texture": "cardbound:057_pandas_fury",
+  "cost": 7,
+  "ability_description": "Strength II for 8 seconds",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:strength",
+    "duration": 160,
+    "amplifier": 1
+  }
+}

@@ -25,6 +25,12 @@ public class ModItems {
                     Identifier.fromNamespaceAndPath("cardbound", "booster_pack")
             );
 
+    public static final ResourceKey<Item> VIAL_OF_ESSENCE_KEY =
+            ResourceKey.create(
+                    Registries.ITEM,
+                    Identifier.fromNamespaceAndPath("cardbound", "vial_of_essence")
+            );
+
     // Create and register our item.
     public static final Item CARD = Registry.register(
             BuiltInRegistries.ITEM,
@@ -40,6 +46,14 @@ public class ModItems {
             new BoosterPackItem(new Item.Properties()
                     .setId(BOOSTER_PACK_KEY)
                     .stacksTo(1))
+    );
+
+    public static final Item VIAL_OF_ESSENCE = Registry.register(
+            BuiltInRegistries.ITEM,
+            VIAL_OF_ESSENCE_KEY,
+            new Item(new Item.Properties()
+                    .setId(VIAL_OF_ESSENCE_KEY)
+                    .stacksTo(64))
     );
 
     public static void initialize() {

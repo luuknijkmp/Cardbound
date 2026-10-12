@@ -1,0 +1,16 @@
+{
+  "name": "Honey Worker",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 34,
+  "entity": "minecraft:bee",
+  "texture": "cardbound:034_honey_worker",
+  "cost": 4,
+  "ability_description": "Regeneration I for 12 seconds",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:regeneration",
+    "duration": 240,
+    "amplifier": 0
+  }
+}

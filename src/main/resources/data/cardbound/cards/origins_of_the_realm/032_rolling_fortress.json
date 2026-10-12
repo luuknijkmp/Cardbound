@@ -6,7 +6,7 @@
   "entity": "minecraft:armadillo",
   "texture": "cardbound:032_rolling_fortress",
   "cost": 7,
-  "ability_description": "Gain Guard II for 10 seconds. | WIP",
+  "ability_description": "Gain Guard II for 10 seconds | WIP",
   "ability": {
     "type": "cardbound:apply_effect",
     "effect": "minecraft:speed",

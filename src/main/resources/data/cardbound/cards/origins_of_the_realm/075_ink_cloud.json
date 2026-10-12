@@ -1,0 +1,16 @@
+{
+  "name": "Ink Cloud",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 75,
+  "entity": "minecraft:squid",
+  "texture": "cardbound:075_ink_cloud",
+  "cost": 5,
+  "ability_description": "Blindness on nearby enemies for 5 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

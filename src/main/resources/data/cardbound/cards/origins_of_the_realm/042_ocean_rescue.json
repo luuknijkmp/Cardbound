@@ -1,0 +1,16 @@
+{
+  "name": "Ocean Rescue",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 42,
+  "entity": "minecraft:dolphin",
+  "texture": "cardbound:042_ocean_rescue",
+  "cost": 9,
+  "ability_description": "Heal 6 health and gain Dolphin's Grace | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

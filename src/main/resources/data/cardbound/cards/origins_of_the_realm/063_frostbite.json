@@ -1,0 +1,16 @@
+{
+  "name": "Frostbite",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 63,
+  "entity": "minecraft:polar_bear",
+  "texture": "cardbound:063_frostbite",
+  "cost": 9,
+  "ability_description": "Slowness III on target for 10 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

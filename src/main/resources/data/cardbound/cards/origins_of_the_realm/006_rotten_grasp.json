@@ -6,7 +6,7 @@
   "entity": "minecraft:zombie",
   "texture": "cardbound:006_rotten_grasp",
   "cost": 5,
-  "ability_description": "Slowness II on target for 8 seconds. | WIP",
+  "ability_description": "Slowness II on target for 8 seconds | WIP",
   "ability": {
     "type": "cardbound:apply_effect",
     "effect": "minecraft:speed",

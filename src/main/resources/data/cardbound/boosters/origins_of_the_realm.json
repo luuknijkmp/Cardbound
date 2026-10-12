@@ -2,11 +2,11 @@
   "name": "Origins of the Realm Booster Pack",
   "set": "cardbound:origins_of_the_realm",
   "rarity_weights": {
-    "common": 700,
+    "common": 704,
     "uncommon": 200,
     "rare": 80,
     "epic": 15,
-    "legendary": 5
+    "legendary": 1
   },
   "holo_chance": 0.10,
   "slots": [

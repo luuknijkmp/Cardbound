@@ -1,0 +1,16 @@
+{
+  "name": "Wither's Requiem",
+  "rarity": "legendary",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 80,
+  "entity": "minecraft:wither_skeleton",
+  "texture": "cardbound:080_withers_requiem",
+  "cost": 18,
+  "ability_description": "Inflict Wither II on nearby enemies and gain Strength II for 15 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

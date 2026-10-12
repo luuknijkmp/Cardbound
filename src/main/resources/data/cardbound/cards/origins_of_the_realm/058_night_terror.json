@@ -1,0 +1,16 @@
+{
+  "name": "Night Terror",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 58,
+  "entity": "minecraft:phantom",
+  "texture": "cardbound:058_night_terror",
+  "cost": 6,
+  "ability_description": "Slow Falling and Speed I for 20 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

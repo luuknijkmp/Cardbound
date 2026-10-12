@@ -27,6 +27,15 @@ public class BoosterPackItemFactory {
         // Create an instance of our registered booster item.
         ItemStack stack = new ItemStack(ModItems.BOOSTER_PACK);
 
+        // Assign the booster pack's visual model based on its set.
+        stack.set(
+                DataComponents.ITEM_MODEL,
+                Identifier.fromNamespaceAndPath(
+                        "cardbound",
+                        definition.set().getPath()
+                )
+        );
+
         // Store which booster definition this instance uses.
         stack.set(ModComponents.PACK_ID, boosterId);
 

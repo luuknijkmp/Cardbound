@@ -1,0 +1,16 @@
+{
+  "name": "Caravan Llama",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 52,
+  "entity": "minecraft:llama",
+  "texture": "cardbound:052_caravan_llama",
+  "cost": 4,
+  "ability_description": "Resistance I for 15 seconds",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:resistance",
+    "duration": 300,
+    "amplifier": 0
+  }
+}

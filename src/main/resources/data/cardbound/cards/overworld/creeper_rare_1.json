@@ -1,9 +1,0 @@
-
-{
-  "name": "Creeper",
-  "rarity": "rare",
-  "set": "cardbound:overworld",
-  "number": 3,
-  "entity": "minecraft:creeper",
-  "texture": "cardbound:creeper_rare_1"
-}

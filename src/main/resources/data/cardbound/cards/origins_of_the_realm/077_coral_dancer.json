@@ -1,0 +1,16 @@
+{
+  "name": "Coral Dancer",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 77,
+  "entity": "minecraft:tropical_fish",
+  "texture": "cardbound:077_coral_dancer",
+  "cost": 3,
+  "ability_description": "Dolphin's Grace for 20 seconds",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:dolphins_grace",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

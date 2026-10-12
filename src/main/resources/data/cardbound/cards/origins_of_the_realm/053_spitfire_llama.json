@@ -1,0 +1,16 @@
+{
+  "name": "Spitfire Llama",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 53,
+  "entity": "minecraft:llama",
+  "texture": "cardbound:053_spitfire_llama",
+  "cost": 5,
+  "ability_description": "Knock back targeted enemy | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

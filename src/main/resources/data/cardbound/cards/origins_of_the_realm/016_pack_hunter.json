@@ -6,7 +6,7 @@
   "entity": "minecraft:wolf",
   "texture": "cardbound:016_pack_hunter",
   "cost": 7,
-  "ability_description": "Strength I and Speed I for 15 seconds. | WIP",
+  "ability_description": "Strength I and Speed I for 15 seconds | WIP",
   "ability": {
     "type": "cardbound:apply_effect",
     "effect": "minecraft:speed",

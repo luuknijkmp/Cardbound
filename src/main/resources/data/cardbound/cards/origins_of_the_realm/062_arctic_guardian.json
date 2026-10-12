@@ -1,0 +1,16 @@
+{
+  "name": "Arctic Guardian",
+  "rarity": "uncommon",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 62,
+  "entity": "minecraft:polar_bear",
+  "texture": "cardbound:062_arctic_guardian",
+  "cost": 7,
+  "ability_description": "Resistance II for 10 seconds",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:resistance",
+    "duration": 200,
+    "amplifier": 1
+  }
+}

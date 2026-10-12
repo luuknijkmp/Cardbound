@@ -1,0 +1,16 @@
+{
+  "name": "Ender Parasite",
+  "rarity": "common",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 43,
+  "entity": "minecraft:endermite",
+  "texture": "cardbound:043_ender_parasite",
+  "cost": 4,
+  "ability_description": "Inflict Weakness I on target for 12 seconds | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Phantom Dive",
+  "rarity": "rare",
+  "set": "cardbound:origins_of_the_realm",
+  "number": 59,
+  "entity": "minecraft:phantom",
+  "texture": "cardbound:059_phantom_dive",
+  "cost": 10,
+  "ability_description": "Launch forward and damage enemies on impact | WIP",
+  "ability": {
+    "type": "cardbound:apply_effect",
+    "effect": "minecraft:speed",
+    "duration": 400,
+    "amplifier": 0
+  }
+}
