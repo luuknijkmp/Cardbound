@@ -6,11 +6,21 @@
   "entity": "minecraft:enderman",
   "texture": "cardbound:014_ender_sovereign",
   "cost": 14,
-  "ability_description": "Teleport to target and deal heavy magic damage | WIP",
+  "ability_description": "Teleport to your target and deal 10 magic damage",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:teleport",
+        "mode": "to_target",
+        "distance": 2,
+        "through_walls": true
+      },
+      {
+        "type": "cardbound:damage",
+        "amount": 10,
+        "target": "looked_at",
+        "range": 40
+      }
+    ]
   }
 }

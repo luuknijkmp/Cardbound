@@ -6,11 +6,15 @@
   "entity": "minecraft:wolf",
   "texture": "cardbound:017_howl",
   "cost": 10,
-  "ability_description": "Summon 2 temporary allied wolves | WIP",
+  "ability_description": "Summon 2 glowing allied wolves for 30 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:summon",
+        "entity": "minecraft:wolf",
+        "count": 2,
+        "duration": 600
+      }
+    ]
   }
 }

@@ -3,5 +3,6 @@
   "item.cardbound.booster_pack": "Booster Pack",
   "key.cardbound.open_settings": "Open Cardbound Settings",
   "item.cardbound.vial_of_essence": "Vial of Essence",
-  "effect.cardbound.protected": "Protected"
+  "effect.cardbound.protected": "Protected",
+  "effect.cardbound.guardians_bite": "Guardian's Bite"
 }

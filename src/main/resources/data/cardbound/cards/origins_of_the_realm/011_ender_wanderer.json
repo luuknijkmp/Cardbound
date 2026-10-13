@@ -6,11 +6,15 @@
   "entity": "minecraft:enderman",
   "texture": "cardbound:011_ender_wanderer",
   "cost": 4,
-  "ability_description": "Teleport 8 blocks forward safely | WIP",
+  "ability_description": "Teleport up to 8 blocks forward safely",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:teleport",
+        "mode": "forward",
+        "distance": 8,
+        "through_walls": false
+      }
+    ]
   }
 }

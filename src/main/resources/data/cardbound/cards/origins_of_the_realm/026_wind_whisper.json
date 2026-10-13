@@ -8,9 +8,15 @@
   "cost": 3,
   "ability_description": "Jump Boost II for 20 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:jump_boost",
-    "duration": 400,
-    "amplifier": 1
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "target": "self",
+        "effect": "minecraft:jump_boost",
+        "duration": 400,
+        "amplifier": 1,
+        "range": 16
+      }
+    ]
   }
 }

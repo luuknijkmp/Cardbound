@@ -6,11 +6,25 @@
   "entity": "minecraft:cave_spider",
   "texture": "cardbound:022_toxic_ambush",
   "cost": 9,
-  "ability_description": "Poison II and Slowness I on target | WIP",
+  "ability_description": "Poison II and Slowness I on target for 8 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "target": "looked_at",
+        "effect": "minecraft:poison",
+        "duration": 160,
+        "amplifier": 1,
+        "range": 16
+      },
+      {
+        "type": "cardbound:apply_effect",
+        "target": "looked_at",
+        "effect": "minecraft:slowness",
+        "duration": 160,
+        "amplifier": 0,
+        "range": 16
+      }
+    ]
   }
 }

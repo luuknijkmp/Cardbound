@@ -6,11 +6,21 @@
   "entity": "minecraft:frog",
   "texture": "cardbound:009_lily_pad_leaper",
   "cost": 3,
-  "ability_description": "Jump Boost II and Water Breathing for 20 seconds | WIP",
+  "ability_description": "Jump Boost II and Water Breathing for 20 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:jump_boost",
+        "duration": 400,
+        "amplifier": 1
+      },
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:water_breathing",
+        "duration": 400,
+        "amplifier": 0
+      }
+    ]
   }
 }

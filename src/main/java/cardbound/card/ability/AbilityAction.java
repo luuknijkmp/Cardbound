@@ -5,7 +5,11 @@ import net.minecraft.resources.Identifier;
 
 public sealed interface AbilityAction
         permits ApplyEffectAction, HealAction, ExplosionAction,
-        LightningAction, SummonAction, DeathProtectionAction {
+        LightningAction, SummonAction, DeathProtectionAction,
+        TeleportAction, DamageAction, WebTrapAction,
+        FireballVolleyAction, FireRingAction, WindBurstAction,
+        WindLaunchAction
+    {
 
     Identifier APPLY_EFFECT =
             Identifier.fromNamespaceAndPath("cardbound", "apply_effect");
@@ -24,6 +28,27 @@ public sealed interface AbilityAction
 
     Identifier DEATH_PROTECTION =
             Identifier.fromNamespaceAndPath("cardbound", "death_protection");
+
+    Identifier TELEPORT =
+            Identifier.fromNamespaceAndPath("cardbound", "teleport");
+
+    Identifier DAMAGE =
+            Identifier.fromNamespaceAndPath("cardbound", "damage");
+
+    Identifier WEB_TRAP =
+            Identifier.fromNamespaceAndPath("cardbound", "web_trap");
+
+    Identifier FIREBALL_VOLLEY =
+            Identifier.fromNamespaceAndPath("cardbound", "fireball_volley");
+
+    Identifier FIRE_RING =
+            Identifier.fromNamespaceAndPath("cardbound", "fire_ring");
+
+    Identifier WIND_BURST =
+            Identifier.fromNamespaceAndPath("cardbound", "wind_burst");
+
+    Identifier WIND_LAUNCH =
+            Identifier.fromNamespaceAndPath("cardbound", "wind_launch");
 
     Codec<AbilityAction> CODEC = Identifier.CODEC.dispatch(
             "type",
@@ -51,6 +76,34 @@ public sealed interface AbilityAction
 
                 if (type.equals(DEATH_PROTECTION)) {
                     return DeathProtectionAction.CODEC;
+                }
+
+                if (type.equals(TELEPORT)) {
+                    return TeleportAction.CODEC;
+                }
+
+                if (type.equals(DAMAGE)) {
+                    return DamageAction.CODEC;
+                }
+
+                if (type.equals(WEB_TRAP)) {
+                    return WebTrapAction.CODEC;
+                }
+
+                if (type.equals(FIREBALL_VOLLEY)) {
+                    return FireballVolleyAction.CODEC;
+                }
+
+                if (type.equals(FIRE_RING)) {
+                    return FireRingAction.CODEC;
+                }
+
+                if (type.equals(WIND_BURST)) {
+                    return WindBurstAction.CODEC;
+                }
+
+                if (type.equals(WIND_LAUNCH)) {
+                    return WindLaunchAction.CODEC;
                 }
 
                 throw new IllegalArgumentException(

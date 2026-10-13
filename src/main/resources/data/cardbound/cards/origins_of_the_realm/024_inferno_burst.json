@@ -6,11 +6,14 @@
   "entity": "minecraft:blaze",
   "texture": "cardbound:024_inferno_burst",
   "cost": 10,
-  "ability_description": "Launch a volley of 3 fireballs | WIP",
+  "ability_description": "Launch a volley of 3 fireballs",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:fireball_volley",
+        "count": 3,
+        "interval": 5
+      }
+    ]
   }
 }

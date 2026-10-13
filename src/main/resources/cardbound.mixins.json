@@ -8,7 +8,9 @@
 		"ZombieTargetGoalMixin",
 		"TargetGoalAccessor",
 		"EntitySummonPersistenceMixin",
-		"ProtectedDeathMixin"
+		"ProtectedDeathMixin",
+		"WolfAllyMixin",
+		"GuardiansBiteMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

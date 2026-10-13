@@ -6,11 +6,15 @@
   "entity": "minecraft:enderman",
   "texture": "cardbound:012_ender_escape",
   "cost": 6,
-  "ability_description": "Teleport away from your last attacker | WIP",
+  "ability_description": "Teleport up to 12 blocks away from your last attacker within 10 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:teleport",
+        "mode": "away_from_attacker",
+        "distance": 12,
+        "through_walls": true
+      }
+    ]
   }
 }

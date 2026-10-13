@@ -6,11 +6,21 @@
   "entity": "minecraft:skeleton_horse",
   "texture": "cardbound:010_spectral_gallop",
   "cost": 9,
-  "ability_description": "Speed III and jump boost for 12 seconds | WIP",
+  "ability_description": "Speed III and Jump Boost I for 12 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:speed",
+        "duration": 240,
+        "amplifier": 2
+      },
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:jump_boost",
+        "duration": 240,
+        "amplifier": 0
+      }
+    ]
   }
 }

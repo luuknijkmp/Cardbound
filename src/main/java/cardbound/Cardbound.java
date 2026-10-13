@@ -2,6 +2,9 @@ package cardbound;
 
 import cardbound.booster.BoosterReloadListener;
 import cardbound.card.ability.CardEffects;
+import cardbound.card.ability.FireRingManager;
+import cardbound.card.ability.FireballVolleyManager;
+import cardbound.card.ability.TemporaryWebs;
 import cardbound.essence.PlayerEssence;
 import cardbound.network.CardRevealPayload;
 import cardbound.set.SetReloadListener;
@@ -33,7 +36,7 @@ public class Cardbound implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		ModItems.initialize();
-		// ModMobDrops.initialize(); <-- UNCOMMENT TO ENABLE VAILS OF ESSENCE IN MOB DROPS
+		// ModMobDrops.initialize(); <-- UNCOMMENT TO ENABLE VIALS OF ESSENCE IN MOB DROPS
 		ModChestLoot.initialize();
 		ModComponents.initialize();
 		ModCommands.initialize();
@@ -41,6 +44,9 @@ public class Cardbound implements ModInitializer {
 		ModSounds.initialize();
 		ModCreativeTabs.initialize();
 		CardEffects.initialize();
+		TemporaryWebs.initialize();
+		FireballVolleyManager.initialize();
+		FireRingManager.initialize();
 
 		//System.out.println("[CARDBOUND] Registering card reload listener");
 		ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(

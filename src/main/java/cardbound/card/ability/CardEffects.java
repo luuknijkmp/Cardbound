@@ -14,7 +14,13 @@ public class CardEffects {
             new ProtectedEffect()
     );
 
+    public static final Holder<MobEffect> GUARDIANS_BITE = Registry.registerForHolder(
+            BuiltInRegistries.MOB_EFFECT,
+            Identifier.fromNamespaceAndPath("cardbound", "guardians_bite"),
+            new GuardiansBiteEffect()
+    );
+
     public static void initialize() {
-        // Calling this method ensures the static registration runs.
+        // Calling this method ensures both static registrations run.
     }
 }

@@ -6,11 +6,23 @@
   "entity": "minecraft:enderman",
   "texture": "cardbound:013_void_walker",
   "cost": 9,
-  "ability_description": "Teleport behind targeted enemy and gain Speed II | WIP",
+  "ability_description": "Teleport behind targeted enemy and gain Speed II for 10 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:teleport",
+        "mode": "behind_target",
+        "distance": 2,
+        "through_walls": true
+      },
+      {
+        "type": "cardbound:apply_effect",
+        "target": "self",
+        "effect": "minecraft:speed",
+        "duration": 200,
+        "amplifier": 1,
+        "range": 16
+      }
+    ]
   }
 }

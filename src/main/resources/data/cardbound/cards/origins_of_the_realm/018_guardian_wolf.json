@@ -6,11 +6,25 @@
   "entity": "minecraft:wolf",
   "texture": "cardbound:018_guardian_wolf",
   "cost": 13,
-  "ability_description": "Gain Guard III for 12 seconds | WIP",
+  "ability_description": "Resistance III and Guardian's Bite for 12 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "target": "self",
+        "effect": "minecraft:resistance",
+        "duration": 240,
+        "amplifier": 2,
+        "range": 16
+      },
+      {
+        "type": "cardbound:apply_effect",
+        "target": "self",
+        "effect": "cardbound:guardians_bite",
+        "duration": 240,
+        "amplifier": 0,
+        "range": 16
+      }
+    ]
   }
 }
