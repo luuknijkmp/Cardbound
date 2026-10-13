@@ -19,8 +19,13 @@ public class CardEffects {
             Identifier.fromNamespaceAndPath("cardbound", "guardians_bite"),
             new GuardiansBiteEffect()
     );
+    public static final Holder<MobEffect> CAT_LANDING = Registry.registerForHolder(
+            BuiltInRegistries.MOB_EFFECT,
+            Identifier.fromNamespaceAndPath("cardbound", "cat_landing"),
+            new CatLandingEffect()
+    );
 
     public static void initialize() {
-        // Calling this method ensures both static registrations run.
+        // Ensures all custom effects are registered.
     }
 }

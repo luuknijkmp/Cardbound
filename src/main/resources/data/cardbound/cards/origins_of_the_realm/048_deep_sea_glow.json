@@ -8,9 +8,13 @@
   "cost": 3,
   "ability_description": "Night Vision for 60 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:night_vision",
-    "duration": 1200,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:night_vision",
+        "duration": 1200,
+        "amplifier": 0
+      }
+    ]
   }
 }

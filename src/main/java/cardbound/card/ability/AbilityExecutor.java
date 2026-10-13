@@ -6,9 +6,11 @@ import cardbound.essence.PlayerEssence;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
@@ -212,6 +214,138 @@ public final class AbilityExecutor {
                         || launchAction.strength() > 3.0F) {
                     return false;
                 }
+            } else if (action instanceof ItemMagnetAction magnetAction) {
+                if (!Float.isFinite(magnetAction.radius())
+                        || magnetAction.radius() <= 0
+                        || magnetAction.radius() > 32) {
+                    return false;
+                }
+            } else if (action instanceof HealingAuraAction auraAction) {
+                if (!Float.isFinite(auraAction.radius())
+                        || auraAction.radius() <= 0
+                        || auraAction.radius() > 16
+                        || auraAction.duration() <= 0
+                        || auraAction.duration() > 12000
+                        || !Float.isFinite(auraAction.healing())
+                        || auraAction.healing() <= 0
+                        || auraAction.healing() > 20
+                        || auraAction.interval() <= 0
+                        || auraAction.interval() > 200) {
+                    return false;
+                }
+            } else if (action instanceof AreaPoisonAction poisonAction) {
+
+                if (!Float.isFinite(poisonAction.radius())
+                        || poisonAction.radius() <= 0
+                        || poisonAction.radius() > 16
+                        || poisonAction.duration() <= 0
+                        || poisonAction.duration() > 12000
+                        || poisonAction.amplifier() < 0
+                        || poisonAction.amplifier() > 4
+                        || poisonAction.damage() < 0
+                        || poisonAction.damage() > 20) {
+                    return false;
+                }
+
+            } else if (action instanceof DragonBreathAction breathAction) {
+
+                if (!Float.isFinite(breathAction.range())
+                        || breathAction.range() <= 0.0F
+                        || breathAction.range() > 64.0F
+                        || !Float.isFinite(breathAction.radius())
+                        || breathAction.radius() <= 0.0F
+                        || breathAction.radius() > 12.0F
+                        || breathAction.duration() < 1
+                        || breathAction.duration() > 1200
+                        || !Float.isFinite(breathAction.damage())
+                        || breathAction.damage() <= 0.0F
+                        || breathAction.damage() > 20.0F
+                        || breathAction.damageInterval() < 1
+                        || breathAction.damageInterval() > 100) {
+                    return false;
+                }
+            } else if (action instanceof AreaGlowingAction glowingAction) {
+
+                if (!Float.isFinite(glowingAction.radius())
+                        || glowingAction.radius() <= 0.0F
+                        || glowingAction.radius() > 16.0F
+                        || glowingAction.duration() <= 0
+                        || glowingAction.duration() > 12000) {
+                    return false;
+                }
+            } else if (action instanceof SandstormCurseAction sandstormAction) {
+
+                if (!Float.isFinite(sandstormAction.radius())
+                        || sandstormAction.radius() <= 0.0F
+                        || sandstormAction.radius() > 16.0F
+                        || sandstormAction.duration() <= 0
+                        || sandstormAction.duration() > 12000) {
+                    return false;
+                }
+            } else if (action instanceof LlamaSpitAction spitAction) {
+
+                if (!Float.isFinite(spitAction.range())
+                        || spitAction.range() <= 0.0F
+                        || spitAction.range() > 64.0F) {
+                    return false;
+                }
+
+                if (TargetResolver.resolve(
+                        player,
+                        AbilityTarget.LOOKED_AT,
+                        spitAction.range()
+                ).isEmpty()) {
+                    return false;
+                }
+            } else if (action instanceof MagmaEruptionAction magmaAction) {
+
+                if (!Float.isFinite(magmaAction.radius())
+                        || magmaAction.radius() <= 0.0F
+                        || magmaAction.radius() > 16.0F
+                        || magmaAction.duration() < 1
+                        || magmaAction.duration() > 1200
+                        || !Float.isFinite(magmaAction.damage())
+                        || magmaAction.damage() <= 0.0F
+                        || magmaAction.damage() > 20.0F
+                        || magmaAction.damageInterval() < 1
+                        || magmaAction.damageInterval() > 100) {
+                    return false;
+                }
+            } else if (action instanceof PhantomDiveAction diveAction) {
+
+                if (!Float.isFinite(diveAction.launchSpeed())
+                        || diveAction.launchSpeed() <= 0.0F
+                        || diveAction.launchSpeed() > 5.0F
+                        || !Float.isFinite(diveAction.upwardBoost())
+                        || diveAction.upwardBoost() < 0.0F
+                        || diveAction.upwardBoost() > 2.0F
+                        || !Float.isFinite(diveAction.hitRadius())
+                        || diveAction.hitRadius() <= 0.0F
+                        || diveAction.hitRadius() > 5.0F
+                        || diveAction.duration() < 1
+                        || diveAction.duration() > 100
+                        || !Float.isFinite(diveAction.damage())
+                        || diveAction.damage() <= 0.0F
+                        || diveAction.damage() > 20.0F
+                        || !Float.isFinite(diveAction.knockback())
+                        || diveAction.knockback() < 0.0F
+                        || diveAction.knockback() > 5.0F) {
+                    return false;
+                }
+            } else if (action instanceof SnowballVolleyAction snowballAction) {
+
+                if (snowballAction.count() < 1
+                        || snowballAction.count() > 20
+                        || snowballAction.interval() < 1
+                        || snowballAction.interval() > 40
+                        || !Float.isFinite(snowballAction.speed())
+                        || snowballAction.speed() <= 0.0F
+                        || snowballAction.speed() > 5.0F
+                        || !Float.isFinite(snowballAction.knockback())
+                        || snowballAction.knockback() < 0.0F
+                        || snowballAction.knockback() > 5.0F) {
+                    return false;
+                }
 
             } else {
                 return false;
@@ -262,8 +396,25 @@ public final class AbilityExecutor {
                         effectAction.amplifier()
                 );
 
+                // Visual feedback for effects applied to another entity.
                 if (target.addEffect(effect)) {
                     anyApplied = true;
+
+                    if (effectAction.target() == AbilityTarget.LOOKED_AT
+                            && target.level() instanceof net.minecraft.server.level.ServerLevel effectLevel) {
+
+                        effectLevel.sendParticles(
+                                net.minecraft.core.particles.ParticleTypes.CLOUD,
+                                target.getX(),
+                                target.getY() + target.getBbHeight() * 0.5,
+                                target.getZ(),
+                                12,
+                                target.getBbWidth() * 0.5,
+                                target.getBbHeight() * 0.35,
+                                target.getBbWidth() * 0.5,
+                                0.02
+                        );
+                    }
                 }
 
             } else if (action instanceof HealAction healAction) {
@@ -607,7 +758,8 @@ public final class AbilityExecutor {
                         serverLevel,
                         serverPlayer,
                         volleyAction.count(),
-                        volleyAction.interval()
+                        volleyAction.interval(),
+                        volleyAction.explosive()
                 );
 
                 anyApplied = true;
@@ -705,8 +857,366 @@ public final class AbilityExecutor {
                 );
 
                 anyApplied = true;
+            } else if (action instanceof ItemMagnetAction magnetAction) {
+                if (!(player instanceof net.minecraft.server.level.ServerPlayer serverPlayer)
+                        || !(player.level() instanceof ServerLevel serverLevel)) {
+                    return false;
+                }
+
+                double radius = magnetAction.radius();
+
+                AABB area = serverPlayer.getBoundingBox().inflate(radius);
+
+                var items = serverLevel.getEntitiesOfClass(
+                        net.minecraft.world.entity.item.ItemEntity.class,
+                        area,
+                        item -> item.isAlive()
+                                && item.distanceToSqr(serverPlayer) <= radius * radius
+                );
+
+                int collected = 0;
+
+                for (var item : items) {
+                    var stack = item.getItem();
+
+                    if (stack.isEmpty()) {
+                        continue;
+                    }
+
+                    int before = stack.getCount();
+
+                    // Adds as many items as possible to the inventory.
+                    serverPlayer.getInventory().add(stack);
+
+                    int pickedUp = before - stack.getCount();
+
+                    if (pickedUp > 0) {
+                        collected += pickedUp;
+
+                        serverLevel.sendParticles(
+                                ParticleTypes.HAPPY_VILLAGER,
+                                item.getX(),
+                                item.getY() + 0.2,
+                                item.getZ(),
+                                8,
+                                0.2,
+                                0.2,
+                                0.2,
+                                0.02
+                        );
+
+                        if (stack.isEmpty()) {
+                            item.discard();
+                        } else {
+                            item.setItem(stack);
+                        }
+                    }
+                }
+
+                if (collected > 0) {
+                    anyApplied = true;
+                }
+            } else if (action instanceof HealingAuraAction auraAction) {
+                if (!(player instanceof net.minecraft.server.level.ServerPlayer serverPlayer)
+                        || !(player.level() instanceof ServerLevel serverLevel)) {
+                    return false;
+                }
+
+                HealingAuraManager.create(
+                        serverLevel,
+                        serverPlayer,
+                        auraAction.radius(),
+                        auraAction.duration(),
+                        auraAction.healing(),
+                        auraAction.interval()
+                );
+
+                anyApplied = true;
+            } else if (action instanceof AreaPoisonAction poisonAction) {
+                if (!(player.level() instanceof ServerLevel serverLevel)) {
+                    return false;
+                }
+
+                double radius = poisonAction.radius();
+                double radiusSquared = radius * radius;
+
+                var nearbyTargets = serverLevel.getEntitiesOfClass(
+                        LivingEntity.class,
+                        player.getBoundingBox().inflate(radius),
+                        target -> target != player
+                                && target.isAlive()
+                                && target.distanceToSqr(player) < radiusSquared
+                                && !(target instanceof SummonedAlly ally
+                                && ally.cardbound$getOwnerUuid() != null)
+                                && (
+                                target instanceof ServerPlayer
+                                        || target instanceof net.minecraft.world.entity.monster.Enemy
+                        )
+                );
+
+                for (LivingEntity target : nearbyTargets) {
+
+                    // Initial bee sting — works even on poison-immune mobs.
+                    if (poisonAction.damage() > 0) {
+                        target.hurt(
+                                serverLevel.damageSources().magic(),
+                                poisonAction.damage()
+                        );
+                    }
+
+                    // Poison follows normal Minecraft immunity rules.
+                    target.addEffect(new MobEffectInstance(
+                            MobEffects.POISON,
+                            poisonAction.duration(),
+                            poisonAction.amplifier()
+                    ));
+
+                    // One-time green burst around every affected target.
+                    serverLevel.sendParticles(
+                            net.minecraft.core.particles.ParticleTypes.WITCH,
+                            target.getX(),
+                            target.getY() + target.getBbHeight() * 0.5,
+                            target.getZ(),
+                            35,
+                            target.getBbWidth() * 0.6,
+                            target.getBbHeight() * 0.45,
+                            target.getBbWidth() * 0.6,
+                            0.02
+                    );
+                }
+
+                anyApplied = true;
+
+
+            } else if (action instanceof DragonBreathAction breathAction) {
+
+                System.out.println("[Cardbound] Dragon Breath execution reached!");
+
+                if (!(player.level() instanceof ServerLevel serverLevel)) {
+                    System.out.println("[Cardbound] FAILED: Not a ServerLevel");
+                    return false;
+                }
+
+                var targetPosition = TargetResolver.resolvePosition(
+                        player,
+                        breathAction.range()
+                );
+
+                System.out.println("[Cardbound] Target position: " + targetPosition);
+
+                if (targetPosition.isEmpty()) {
+                    System.out.println("[Cardbound] FAILED: No target position");
+                    return false;
+                }
+
+                // Keep your existing DragonBreathManager.spawn(...)
+                // and anyApplied = true; below this point.
+
+                DragonBreathManager.spawn(
+                        serverLevel,
+                        player,
+                        targetPosition.get(),
+                        breathAction.radius(),
+                        breathAction.duration(),
+                        breathAction.damage(),
+                        breathAction.damageInterval()
+                );
+
+                anyApplied = true;
+
+                // ^ HERE
+            } else if (action instanceof AreaGlowingAction glowingAction) {
+
+                if (!(player.level() instanceof ServerLevel serverLevel)) {
+                    return false;
+                }
+
+                double radius = glowingAction.radius();
+                double radiusSquared = radius * radius;
+
+                var nearbyTargets = serverLevel.getEntitiesOfClass(
+                        LivingEntity.class,
+                        player.getBoundingBox().inflate(radius),
+                        target -> target != player
+                                && target.isAlive()
+                                && target.distanceToSqr(player) <= radiusSquared
+                                && !(target instanceof SummonedAlly ally
+                                && ally.cardbound$getOwnerUuid() != null)
+                                && (target instanceof ServerPlayer
+                                || target instanceof net.minecraft.world.entity.monster.Enemy)
+                );
+
+                for (LivingEntity target : nearbyTargets) {
+
+                    target.addEffect(new MobEffectInstance(
+                            MobEffects.GLOWING,
+                            glowingAction.duration(),
+                            0
+                    ));
+
+                    serverLevel.sendParticles(
+                            ParticleTypes.END_ROD,
+                            target.getX(),
+                            target.getY() + target.getBbHeight() * 0.5,
+                            target.getZ(),
+                            18,
+                            target.getBbWidth() * 0.5,
+                            target.getBbHeight() * 0.4,
+                            target.getBbWidth() * 0.5,
+                            0.02
+                    );
+                }
+
+                anyApplied = true;
+            }
+            else if (action instanceof SandstormCurseAction sandstormAction) {
+
+                if (!(player.level() instanceof ServerLevel serverLevel)) {
+                    return false;
+                }
+
+                double radius = sandstormAction.radius();
+                double radiusSquared = radius * radius;
+
+                var nearbyTargets = serverLevel.getEntitiesOfClass(
+                        LivingEntity.class,
+                        player.getBoundingBox().inflate(radius),
+                        target -> target != player
+                                && target.isAlive()
+                                && target.distanceToSqr(player) <= radiusSquared
+                                && !(target instanceof SummonedAlly ally
+                                && ally.cardbound$getOwnerUuid() != null)
+                                && (target instanceof ServerPlayer
+                                || target instanceof net.minecraft.world.entity.monster.Enemy)
+                );
+
+                for (LivingEntity target : nearbyTargets) {
+
+                    // Blindness I
+                    target.addEffect(new MobEffectInstance(
+                            MobEffects.BLINDNESS,
+                            sandstormAction.duration(),
+                            0
+                    ));
+
+                    // Slowness II
+                    target.addEffect(new MobEffectInstance(
+                            MobEffects.SLOWNESS,
+                            sandstormAction.duration(),
+                            1
+                    ));
+
+                    // Sandstorm particles around each affected enemy.
+                    serverLevel.sendParticles(
+                            new net.minecraft.core.particles.BlockParticleOption(
+                                    ParticleTypes.FALLING_DUST,
+                                    net.minecraft.world.level.block.Blocks.SAND.defaultBlockState()
+                            ),
+                            target.getX(),
+                            target.getY() + target.getBbHeight() * 0.5,
+                            target.getZ(),
+                            25,
+                            target.getBbWidth() * 0.6,
+                            target.getBbHeight() * 0.4,
+                            target.getBbWidth() * 0.6,
+                            0.04
+                    );
+
+
+                }
+
+
+                anyApplied = true;
+            } else if (action instanceof LlamaSpitAction spitAction) {
+
+                if (!(player.level() instanceof ServerLevel serverLevel)) {
+                    return false;
+                }
+
+                LivingEntity target = TargetResolver.resolve(
+                        player,
+                        AbilityTarget.LOOKED_AT,
+                        spitAction.range()
+                ).orElse(null);
+
+                if (target == null || !target.isAlive()) {
+                    return false;
+                }
+
+                // Spawn the projectile in front of the player's face.
+                Vec3 start = player.getEyePosition()
+                        .add(player.getLookAngle().scale(0.8));
+
+                // Aim toward the target's center.
+                Vec3 destination = target.position()
+                        .add(0.0, target.getBbHeight() * 0.5, 0.0);
+
+                Vec3 direction = destination.subtract(start).normalize();
+
+                CardboundLlamaSpit spit = new CardboundLlamaSpit(
+                        serverLevel,
+                        player
+                );
+
+                spit.setPos(start.x, start.y, start.z);
+
+                spit.shoot(
+                        direction.x,
+                        direction.y,
+                        direction.z,
+                        1.5F,
+                        0.0F
+                );
+
+                serverLevel.addFreshEntity(spit);
+
+                anyApplied = true;
+            }
+            else if (action instanceof MagmaEruptionAction magmaAction) {
+
+                if (!(player.level() instanceof ServerLevel serverLevel)) {
+                    return false;
+                }
+
+                MagmaEruptionManager.create(
+                        serverLevel,
+                        player,
+                        magmaAction.radius(),
+                        magmaAction.duration(),
+                        magmaAction.damage(),
+                        magmaAction.damageInterval()
+                );
+
+                anyApplied = true;
+            }
+            else if (action instanceof PhantomDiveAction diveAction) {
+
+                if (!(player instanceof ServerPlayer serverPlayer)) {
+                    return false;
+                }
+
+                PhantomDiveManager.start(
+                        serverPlayer,
+                        diveAction.launchSpeed(),
+                        diveAction.upwardBoost(),
+                        diveAction.hitRadius(),
+                        diveAction.duration(),
+                        diveAction.damage(),
+                        diveAction.knockback()
+                );
+
+                anyApplied = true;
+
+            } else if (action instanceof SnowballVolleyAction snowballAction) {
+
+                if (player instanceof ServerPlayer serverPlayer) {
+                    SnowballVolleyManager.start(serverPlayer, snowballAction);
+                    anyApplied = true;
+                }
             }
         }
+
+
 
         if (!anyApplied) {
             return false;

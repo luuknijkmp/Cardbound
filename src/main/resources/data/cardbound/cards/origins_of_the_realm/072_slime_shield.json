@@ -8,9 +8,13 @@
   "cost": 7,
   "ability_description": "Absorption II for 20 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:absorption",
-    "duration": 400,
-    "amplifier": 1
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:absorption",
+        "duration": 400,
+        "amplifier": 1
+      }
+    ]
   }
 }

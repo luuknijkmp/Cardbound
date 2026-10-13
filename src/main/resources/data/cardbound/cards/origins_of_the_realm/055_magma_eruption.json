@@ -6,11 +6,16 @@
   "entity": "minecraft:magma_cube",
   "texture": "cardbound:055_magma_eruption",
   "cost": 11,
-  "ability_description": "Create a temporary damaging magma zone | WIP",
+  "ability_description": "Create a damaging magma zone for 10 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:magma_eruption",
+        "radius": 5.0,
+        "duration": 200,
+        "damage": 2.0,
+        "damage_interval": 20
+      }
+    ]
   }
 }

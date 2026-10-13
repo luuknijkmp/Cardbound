@@ -8,7 +8,10 @@ public sealed interface AbilityAction
         LightningAction, SummonAction, DeathProtectionAction,
         TeleportAction, DamageAction, WebTrapAction,
         FireballVolleyAction, FireRingAction, WindBurstAction,
-        WindLaunchAction
+        WindLaunchAction, ItemMagnetAction, HealingAuraAction,
+        AreaPoisonAction, DragonBreathAction, AreaGlowingAction,
+        SandstormCurseAction, LlamaSpitAction, MagmaEruptionAction,
+        PhantomDiveAction, SnowballVolleyAction
     {
 
     Identifier APPLY_EFFECT =
@@ -49,6 +52,37 @@ public sealed interface AbilityAction
 
     Identifier WIND_LAUNCH =
             Identifier.fromNamespaceAndPath("cardbound", "wind_launch");
+
+    Identifier ITEM_MAGNET =
+            Identifier.fromNamespaceAndPath("cardbound", "item_magnet");
+
+    Identifier HEALING_AURA =
+            Identifier.fromNamespaceAndPath("cardbound", "healing_aura");
+
+    Identifier AREA_POISON =
+            Identifier.fromNamespaceAndPath("cardbound", "area_poison");
+
+    Identifier DRAGON_BREATH =
+            Identifier.fromNamespaceAndPath("cardbound", "dragon_breath");
+
+    Identifier AREA_GLOWING =
+            Identifier.fromNamespaceAndPath("cardbound", "area_glowing");
+
+    Identifier SANDSTORM_CURSE =
+            Identifier.fromNamespaceAndPath("cardbound", "sandstorm_curse");
+
+    Identifier LLAMA_SPIT =
+            Identifier.fromNamespaceAndPath("cardbound", "llama_spit");
+
+    Identifier MAGMA_ERUPTION =
+            Identifier.fromNamespaceAndPath("cardbound", "magma_eruption");
+
+    Identifier PHANTOM_DIVE =
+            Identifier.fromNamespaceAndPath("cardbound", "phantom_dive");
+
+    Identifier SNOWBALL_VOLLEY =
+            Identifier.fromNamespaceAndPath("cardbound", "snowball_volley");
+
 
     Codec<AbilityAction> CODEC = Identifier.CODEC.dispatch(
             "type",
@@ -104,6 +138,46 @@ public sealed interface AbilityAction
 
                 if (type.equals(WIND_LAUNCH)) {
                     return WindLaunchAction.CODEC;
+                }
+
+                if (type.equals(ITEM_MAGNET)) {
+                    return ItemMagnetAction.CODEC;
+                }
+
+                if (type.equals(HEALING_AURA)) {
+                    return HealingAuraAction.CODEC;
+                }
+
+                if (type.equals(AREA_POISON)) {
+                    return AreaPoisonAction.CODEC;
+                }
+
+                if (type.equals(DRAGON_BREATH)) {
+                    return DragonBreathAction.CODEC;
+                }
+
+                if (type.equals(AREA_GLOWING)) {
+                    return AreaGlowingAction.CODEC;
+                }
+
+                if (type.equals(SANDSTORM_CURSE)) {
+                    return SandstormCurseAction.CODEC;
+                }
+
+                if (type.equals(LLAMA_SPIT)) {
+                    return LlamaSpitAction.CODEC;
+                }
+
+                if (type.equals(MAGMA_ERUPTION)) {
+                    return MagmaEruptionAction.CODEC;
+                }
+
+                if (type.equals(PHANTOM_DIVE)) {
+                    return PhantomDiveAction.CODEC;
+                }
+
+                if (type.equals(SNOWBALL_VOLLEY)) {
+                    return SnowballVolleyAction.CODEC;
                 }
 
                 throw new IllegalArgumentException(

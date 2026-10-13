@@ -10,7 +10,9 @@
 		"EntitySummonPersistenceMixin",
 		"ProtectedDeathMixin",
 		"WolfAllyMixin",
-		"GuardiansBiteMixin"
+		"GuardiansBiteMixin",
+		"CatLandingMixin",
+		"SilverfishAllyMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

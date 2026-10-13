@@ -6,11 +6,23 @@
   "entity": "minecraft:cat",
   "texture": "cardbound:037_feline_reflexes",
   "cost": 6,
-  "ability_description": "Speed II and Jump Boost I for 15 seconds | WIP",
+  "ability_description": "Speed II and Jump Boost I for 15 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "target": "self",
+        "effect": "minecraft:speed",
+        "duration": 300,
+        "amplifier": 1
+      },
+      {
+        "type": "cardbound:apply_effect",
+        "target": "self",
+        "effect": "minecraft:jump_boost",
+        "duration": 300,
+        "amplifier": 0
+      }
+    ]
   }
 }

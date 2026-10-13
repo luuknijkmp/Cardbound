@@ -6,11 +6,23 @@
   "entity": "minecraft:armadillo",
   "texture": "cardbound:032_rolling_fortress",
   "cost": 7,
-  "ability_description": "Gain Guard II for 10 seconds | WIP",
+  "ability_description": "Resistance III and Slowness II for 10 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "target": "self",
+        "effect": "minecraft:resistance",
+        "duration": 200,
+        "amplifier": 2
+      },
+      {
+        "type": "cardbound:apply_effect",
+        "target": "self",
+        "effect": "minecraft:slowness",
+        "duration": 200,
+        "amplifier": 1
+      }
+    ]
   }
 }

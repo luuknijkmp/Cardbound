@@ -8,9 +8,14 @@
   "cost": 4,
   "ability_description": "Regeneration I for 12 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:regeneration",
-    "duration": 240,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "target": "self",
+        "effect": "minecraft:regeneration",
+        "duration": 240,
+        "amplifier": 0
+      }
+    ]
   }
 }

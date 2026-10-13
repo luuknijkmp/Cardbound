@@ -8,9 +8,14 @@
   "cost": 3,
   "ability_description": "Slow Falling for 30 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:slow_falling",
-    "duration": 600,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "target": "self",
+        "effect": "cardbound:cat_landing",
+        "duration": 600,
+        "amplifier": 0
+      }
+    ]
   }
 }

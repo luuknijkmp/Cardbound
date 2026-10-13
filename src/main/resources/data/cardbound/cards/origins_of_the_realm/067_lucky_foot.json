@@ -6,11 +6,21 @@
   "entity": "minecraft:rabbit",
   "texture": "cardbound:067_lucky_foot",
   "cost": 6,
-  "ability_description": "Speed II and Luck for 20 seconds | WIP",
+  "ability_description": "Speed II and Luck I for 20 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:speed",
+        "duration": 400,
+        "amplifier": 1
+      },
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:luck",
+        "duration": 400,
+        "amplifier": 0
+      }
+    ]
   }
 }

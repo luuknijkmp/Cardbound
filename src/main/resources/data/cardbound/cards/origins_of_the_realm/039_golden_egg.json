@@ -5,12 +5,14 @@
   "number": 39,
   "entity": "minecraft:chicken",
   "texture": "cardbound:039_golden_egg",
-  "cost": 10,
-  "ability_description": "Restore 6 health and 3 Essence | WIP",
+  "cost": 12,
+  "ability_description": "Instantly restore 8 health (4 hearts)",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:heal",
+        "amount": 8.0
+      }
+    ]
   }
 }

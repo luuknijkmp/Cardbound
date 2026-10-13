@@ -6,11 +6,17 @@
   "entity": "minecraft:ender_dragon",
   "texture": "cardbound:047_dragons_breath",
   "cost": 19,
-  "ability_description": "Create a lingering cloud of dragon breath that damages enemies | WIP",
+  "ability_description": "Create a 30-second dragon breath cloud that damages enemies every second",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:dragon_breath",
+        "range": 30.0,
+        "radius": 5.0,
+        "duration": 600,
+        "damage": 2.0,
+        "damage_interval": 20
+      }
+    ]
   }
 }

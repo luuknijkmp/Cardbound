@@ -6,11 +6,16 @@
   "entity": "minecraft:snow_golem",
   "texture": "cardbound:073_snowball_sentinel",
   "cost": 4,
-  "ability_description": "Launch 5 rapid snowballs with knockback | WIP",
+  "ability_description": "Launch 5 rapid snowballs with knockback",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:snowball_volley",
+        "count": 5,
+        "interval": 4,
+        "speed": 1.5,
+        "knockback": 1.2
+      }
+    ]
   }
 }

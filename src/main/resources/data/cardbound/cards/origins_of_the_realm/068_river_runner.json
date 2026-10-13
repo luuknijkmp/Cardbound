@@ -6,11 +6,15 @@
   "entity": "minecraft:salmon",
   "texture": "cardbound:068_river_runner",
   "cost": 3,
-  "ability_description": "Water Breathing and Speed I for 25 seconds | WIP",
+  "ability_description": "Gain Conduit Power for 25 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:conduit_power",
+        "duration": 500,
+        "amplifier": 0
+      }
+    ]
   }
 }

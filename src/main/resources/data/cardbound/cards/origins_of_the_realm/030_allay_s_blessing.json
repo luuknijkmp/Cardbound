@@ -6,11 +6,16 @@
   "entity": "minecraft:allay",
   "texture": "cardbound:030_allay_s_blessing",
   "cost": 8,
-  "ability_description": "Restore 5 Essence | WIP",
+  "ability_description": "Create a healing sanctuary around you for 12 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:healing_aura",
+        "radius": 6.0,
+        "duration": 240,
+        "healing": 2.0,
+        "interval": 40
+      }
+    ]
   }
 }

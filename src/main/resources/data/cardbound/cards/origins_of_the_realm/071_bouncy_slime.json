@@ -5,12 +5,22 @@
   "number": 71,
   "entity": "minecraft:slime",
   "texture": "cardbound:071_bouncy_slime",
-  "cost": 4,
-  "ability_description": "Jump Boost II and fall damage immunity for 20 seconds | WIP",
+  "cost": 3,
+  "ability_description": "Jump Boost II and Slowness I for 20 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:jump_boost",
+        "duration": 400,
+        "amplifier": 1
+      },
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:slowness",
+        "duration": 400,
+        "amplifier": 0
+      }
+    ]
   }
 }

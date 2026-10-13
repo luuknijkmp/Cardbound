@@ -6,11 +6,15 @@
   "entity": "minecraft:ghast",
   "texture": "cardbound:046_ghastly_cry",
   "cost": 8,
-  "ability_description": "Launch an explosive fireball | WIP",
+  "ability_description": "Launch a small explosive Ghast fireball",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:fireball_volley",
+        "count": 1,
+        "interval": 1,
+        "explosive": true
+      }
+    ]
   }
 }

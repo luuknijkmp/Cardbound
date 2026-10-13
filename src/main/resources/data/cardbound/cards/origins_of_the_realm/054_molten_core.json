@@ -6,11 +6,21 @@
   "entity": "minecraft:magma_cube",
   "texture": "cardbound:054_molten_core",
   "cost": 7,
-  "ability_description": "Fire Resistance and Strength I for 12 seconds | WIP",
+  "ability_description": "Fire Resistance and Strength I for 12 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:fire_resistance",
+        "duration": 240,
+        "amplifier": 0
+      },
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:strength",
+        "duration": 240,
+        "amplifier": 0
+      }
+    ]
   }
 }

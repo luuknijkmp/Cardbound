@@ -6,11 +6,25 @@
   "entity": "minecraft:polar_bear",
   "texture": "cardbound:063_frostbite",
   "cost": 9,
-  "ability_description": "Slowness III on target for 10 seconds | WIP",
+  "ability_description": "Inflict Slowness III and Weakness I on a target for 10 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "target": "looked_at",
+        "range": 30.0,
+        "effect": "minecraft:slowness",
+        "duration": 200,
+        "amplifier": 2
+      },
+      {
+        "type": "cardbound:apply_effect",
+        "target": "looked_at",
+        "range": 20.0,
+        "effect": "minecraft:weakness",
+        "duration": 200,
+        "amplifier": 0
+      }
+    ]
   }
 }

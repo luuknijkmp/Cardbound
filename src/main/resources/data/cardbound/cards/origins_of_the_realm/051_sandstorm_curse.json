@@ -6,11 +6,14 @@
   "entity": "minecraft:husk",
   "texture": "cardbound:051_sandstorm_curse",
   "cost": 10,
-  "ability_description": "Blindness and Slowness on nearby enemies | WIP",
+  "ability_description": "Apply Blindness I and Slowness II to nearby enemies for 10 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:sandstorm_curse",
+        "radius": 8.0,
+        "duration": 200
+      }
+    ]
   }
 }

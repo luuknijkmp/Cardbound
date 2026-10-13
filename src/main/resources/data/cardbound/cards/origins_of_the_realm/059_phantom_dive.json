@@ -6,11 +6,18 @@
   "entity": "minecraft:phantom",
   "texture": "cardbound:059_phantom_dive",
   "cost": 10,
-  "ability_description": "Launch forward and damage enemies on impact | WIP",
+  "ability_description": "Dive forward, damaging and knocking back the first enemy you hit",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:phantom_dive",
+        "launch_speed": 1.8,
+        "upward_boost": 0.35,
+        "hit_radius": 2.0,
+        "duration": 20,
+        "damage": 6.0,
+        "knockback": 1.5
+      }
+    ]
   }
 }

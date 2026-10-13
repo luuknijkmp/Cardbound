@@ -1,10 +1,7 @@
 package cardbound;
 
 import cardbound.booster.BoosterReloadListener;
-import cardbound.card.ability.CardEffects;
-import cardbound.card.ability.FireRingManager;
-import cardbound.card.ability.FireballVolleyManager;
-import cardbound.card.ability.TemporaryWebs;
+import cardbound.card.ability.*;
 import cardbound.essence.PlayerEssence;
 import cardbound.network.CardRevealPayload;
 import cardbound.set.SetReloadListener;
@@ -47,6 +44,11 @@ public class Cardbound implements ModInitializer {
 		TemporaryWebs.initialize();
 		FireballVolleyManager.initialize();
 		FireRingManager.initialize();
+		HealingAuraManager.initialize();
+		DragonBreathManager.initialize();
+		MagmaEruptionManager.initialize();
+		PhantomDiveManager.initialize();
+		SnowballVolleyManager.register();
 
 		//System.out.println("[CARDBOUND] Registering card reload listener");
 		ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(

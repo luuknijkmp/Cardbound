@@ -84,4 +84,34 @@ public final class TargetResolver {
 
         return Optional.ofNullable(closest);
     }
+
+    public static Optional<Vec3> resolvePosition(
+            Player player,
+            double range
+    ) {
+        if (!Double.isFinite(range) || range <= 0.0) {
+            return Optional.empty();
+        }
+
+        Vec3 start = player.getEyePosition();
+        Vec3 end = start.add(player.getLookAngle().scale(range));
+
+        HitResult blockHit = player.level().clip(
+                new ClipContext(
+                        start,
+                        end,
+                        ClipContext.Block.COLLIDER,
+                        ClipContext.Fluid.NONE,
+                        player
+                )
+        );
+
+        // Spawn the cloud at the block we're looking at.
+        if (blockHit.getType() == HitResult.Type.BLOCK) {
+            return Optional.of(blockHit.getLocation());
+        }
+
+        // No block hit? Use the maximum targeting distance.
+        return Optional.of(end);
+    }
 }

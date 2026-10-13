@@ -6,11 +6,13 @@
   "entity": "minecraft:allay",
   "texture": "cardbound:029_friendly_allay",
   "cost": 3,
-  "ability_description": "Instantly collect nearby dropped items | WIP",
+  "ability_description": "Instantly collect dropped items within 8 blocks",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:item_magnet",
+        "radius": 8.0
+      }
+    ]
   }
 }

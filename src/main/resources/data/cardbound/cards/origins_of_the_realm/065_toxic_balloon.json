@@ -6,11 +6,19 @@
   "entity": "minecraft:pufferfish",
   "texture": "cardbound:065_toxic_balloon",
   "cost": 7,
-  "ability_description": "Poison II to nearby enemies | WIP",
+  "ability_description": "Repel nearby enemies and gain Resistance I for 5 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:wind_push",
+        "radius": 5.0
+      },
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:resistance",
+        "duration": 100,
+        "amplifier": 0
+      }
+    ]
   }
 }

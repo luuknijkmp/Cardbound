@@ -6,11 +6,14 @@
   "entity": "minecraft:glow_squid",
   "texture": "cardbound:049_luminous_ink",
   "cost": 5,
-  "ability_description": "Apply Glowing to nearby enemies for 20 seconds | WIP",
+  "ability_description": "Apply Glowing to nearby enemies for 20 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:area_glowing",
+        "radius": 8.0,
+        "duration": 400
+      }
+    ]
   }
 }

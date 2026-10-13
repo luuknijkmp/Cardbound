@@ -6,11 +6,13 @@
   "entity": "minecraft:llama",
   "texture": "cardbound:053_spitfire_llama",
   "cost": 5,
-  "ability_description": "Knock back targeted enemy | WIP",
+  "ability_description": "Spit at a targeted enemy, dealing minor damage and knocking them back",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:llama_spit",
+        "range": 20.0
+      }
+    ]
   }
 }

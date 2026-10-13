@@ -1,6 +1,7 @@
 package cardbound.mixin;
 
 import cardbound.card.ability.AllyTargetGoal;
+import cardbound.card.ability.SilverfishAllyTargetGoal;
 import cardbound.card.ability.SummonedAlly;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
@@ -23,8 +24,9 @@ public abstract class ZombieTargetGoalMixin {
         NearestAttackableTargetGoal<?> goal =
                 (NearestAttackableTargetGoal<?>) (Object) this;
 
-        // Allow Cardbound's custom allied targeting goal.
-        if (goal instanceof AllyTargetGoal) {
+        // Allow both Cardbound allied targeting goals.
+        if (goal instanceof AllyTargetGoal
+                || goal instanceof SilverfishAllyTargetGoal) {
             return;
         }
 

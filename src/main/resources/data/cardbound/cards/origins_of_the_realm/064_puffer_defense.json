@@ -6,11 +6,16 @@
   "entity": "minecraft:pufferfish",
   "texture": "cardbound:064_puffer_defense",
   "cost": 4,
-  "ability_description": "Poison nearby attackers for 5 seconds | WIP",
+  "ability_description": "Poison nearby enemies for 5 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:area_poison",
+        "radius": 5.0,
+        "duration": 100,
+        "amplifier": 0,
+        "damage": 0.0
+      }
+    ]
   }
 }

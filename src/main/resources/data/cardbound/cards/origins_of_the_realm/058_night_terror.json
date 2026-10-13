@@ -6,11 +6,21 @@
   "entity": "minecraft:phantom",
   "texture": "cardbound:058_night_terror",
   "cost": 6,
-  "ability_description": "Slow Falling and Speed I for 20 seconds | WIP",
+  "ability_description": "Slow Falling and Speed I for 20 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:slow_falling",
+        "duration": 400,
+        "amplifier": 0
+      },
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:speed",
+        "duration": 400,
+        "amplifier": 0
+      }
+    ]
   }
 }
