@@ -6,11 +6,14 @@
   "entity": "minecraft:creeper",
   "texture": "cardbound:003_charged_creeper",
   "cost": 12,
-  "ability_description": "Lightning strikes your targeted enemy | WIP",
+  "ability_description": "Strike a targeted entity with lightning",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:lightning",
+        "target": "looked_at",
+        "range": 40.0
+      }
+    ]
   }
 }

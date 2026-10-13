@@ -1,14 +1,16 @@
 package cardbound.card.ability;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.mojang.serialization.Codec;
 import net.minecraft.resources.Identifier;
 
 public record ApplyEffectAction(
         Identifier effect,
         int duration,
-        int amplifier
+        int amplifier,
+        AbilityTarget target,
+        float range
 ) implements AbilityAction {
 
     public static final MapCodec<ApplyEffectAction> CODEC =
@@ -20,7 +22,14 @@ public record ApplyEffectAction(
                             .forGetter(ApplyEffectAction::duration),
 
                     Codec.INT.fieldOf("amplifier")
-                            .forGetter(ApplyEffectAction::amplifier)
+                            .forGetter(ApplyEffectAction::amplifier),
+
+                    AbilityTarget.CODEC.optionalFieldOf(
+                            "target", AbilityTarget.SELF
+                    ).forGetter(ApplyEffectAction::target),
+
+                    Codec.FLOAT.optionalFieldOf("range", 20.0F)
+                            .forGetter(ApplyEffectAction::range)
 
             ).apply(instance, ApplyEffectAction::new));
 

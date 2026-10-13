@@ -6,11 +6,15 @@
   "entity": "minecraft:creeper",
   "texture": "cardbound:004_creeper_cataclysm",
   "cost": 18,
-  "ability_description": "Massive explosion around you; no block damage | WIP",
+  "ability_description": "Massive explosion around you; beware of the crater!",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:explosion",
+        "radius": 10.0,
+        "damage": 10.0,
+        "damages_terrain": true
+      }
+    ]
   }
 }

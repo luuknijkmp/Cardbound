@@ -4,7 +4,8 @@ import com.mojang.serialization.Codec;
 import net.minecraft.resources.Identifier;
 
 public sealed interface AbilityAction
-        permits ApplyEffectAction, HealAction, ExplosionAction {
+        permits ApplyEffectAction, HealAction, ExplosionAction,
+        LightningAction, SummonAction {
 
     Identifier APPLY_EFFECT =
             Identifier.fromNamespaceAndPath("cardbound", "apply_effect");
@@ -14,6 +15,12 @@ public sealed interface AbilityAction
 
     Identifier EXPLOSION =
             Identifier.fromNamespaceAndPath("cardbound", "explosion");
+
+    Identifier LIGHTNING =
+            Identifier.fromNamespaceAndPath("cardbound", "lightning");
+
+    Identifier SUMMON =
+            Identifier.fromNamespaceAndPath("cardbound", "summon");
 
     Codec<AbilityAction> CODEC = Identifier.CODEC.dispatch(
             "type",
@@ -29,6 +36,14 @@ public sealed interface AbilityAction
 
                 if (type.equals(EXPLOSION)) {
                     return ExplosionAction.CODEC;
+                }
+
+                if (type.equals(LIGHTNING)) {
+                    return LightningAction.CODEC;
+                }
+
+                if (type.equals(SUMMON)) {
+                    return SummonAction.CODEC;
                 }
 
                 throw new IllegalArgumentException(

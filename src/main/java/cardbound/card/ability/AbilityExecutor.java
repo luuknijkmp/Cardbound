@@ -9,6 +9,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
@@ -16,6 +18,13 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.ExplosionDamageCalculator;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityTypes;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.phys.Vec3;
 
 public final class AbilityExecutor {
 
@@ -46,7 +55,18 @@ public final class AbilityExecutor {
                 if (effectAction.duration() <= 0
                         || effectAction.amplifier() < 0
                         || effectAction.amplifier() > 255
-                        || BuiltInRegistries.MOB_EFFECT.get(effectAction.effect()).isEmpty()) {
+                        || BuiltInRegistries.MOB_EFFECT.get(effectAction.effect()).isEmpty()
+                        || !Float.isFinite(effectAction.range())
+                        || effectAction.range() <= 0
+                        || effectAction.range() > 64) {
+                    return false;
+                }
+
+                if (TargetResolver.resolve(
+                        player,
+                        effectAction.target(),
+                        effectAction.range()
+                ).isEmpty()) {
                     return false;
                 }
             } else if (action instanceof HealAction healAction) {
@@ -64,6 +84,34 @@ public final class AbilityExecutor {
                     return false;
                 }
             }
+            else if (action instanceof LightningAction lightningAction) {
+                if (!Float.isFinite(lightningAction.range())
+                        || lightningAction.range() <= 0
+                        || lightningAction.range() > 64
+                        || lightningAction.target() != AbilityTarget.LOOKED_AT) {
+                    return false;
+                }
+
+                if (TargetResolver.resolve(
+                        player,
+                        lightningAction.target(),
+                        lightningAction.range()
+                ).isEmpty()) {
+                    return false;
+                }
+            }
+            else if (action instanceof SummonAction summonAction) {
+                if (summonAction.count() <= 0
+                        || summonAction.count() > 10
+                        || summonAction.duration() <= 0
+                        || summonAction.duration() > 12000
+                        || BuiltInRegistries.ENTITY_TYPE.get(summonAction.entity()).isEmpty()) {
+                    return false;
+                }
+            }
+
+            // New
+
             else {
                 return false;
             }
@@ -74,6 +122,12 @@ public final class AbilityExecutor {
 
         for (AbilityAction action : ability.actions()) {
             if (action instanceof ApplyEffectAction effectAction) {
+                LivingEntity target = TargetResolver.resolve(
+                        player,
+                        effectAction.target(),
+                        effectAction.range()
+                ).orElseThrow();
+
                 var effectType = BuiltInRegistries.MOB_EFFECT
                         .get(effectAction.effect())
                         .orElseThrow();
@@ -84,7 +138,7 @@ public final class AbilityExecutor {
                         effectAction.amplifier()
                 );
 
-                if (player.addEffect(effect)) {
+                if (target.addEffect(effect)) {
                     anyApplied = true;
                 }
             } else if (action instanceof HealAction healAction) {
@@ -173,7 +227,88 @@ public final class AbilityExecutor {
 
                 anyApplied = true;
                 // Terrain destruction will be connected in the next step.
+            } else if (action instanceof LightningAction lightningAction) {
+                if (!(player.level() instanceof ServerLevel serverLevel)) {
+                    return false;
+                }
+
+                LivingEntity target = TargetResolver.resolve(
+                        player,
+                        lightningAction.target(),
+                        lightningAction.range()
+                ).orElseThrow();
+
+                LightningBolt lightning = EntityTypes.LIGHTNING_BOLT.create(
+                        serverLevel,
+                        EntitySpawnReason.TRIGGERED
+                );
+
+                if (lightning == null) {
+                    return false;
+                }
+
+                lightning.setPos(
+                        target.getX(),
+                        target.getY(),
+                        target.getZ()
+                );
+
+                serverLevel.addFreshEntity(lightning);
+
+                anyApplied = true;
             }
+            else if (action instanceof SummonAction summonAction) {
+                if (!(player.level() instanceof ServerLevel serverLevel)) {
+                    return false;
+                }
+
+                EntityType<?> entityType = BuiltInRegistries.ENTITY_TYPE
+                        .get(summonAction.entity())
+                        .orElseThrow()
+                        .value();
+
+                int spawned = 0;
+
+                for (int i = 0; i < summonAction.count(); i++) {
+                    var entity = entityType.create(
+                            serverLevel,
+                            EntitySpawnReason.TRIGGERED
+                    );
+
+                    if (!(entity instanceof Mob mob)
+                            || !(mob instanceof SummonedAlly ally)) {
+                        continue;
+                    }
+
+                    double angle = (Math.PI * 2.0 * i) / summonAction.count();
+                    double x = player.getX() + Math.cos(angle) * 2.5;
+                    double z = player.getZ() + Math.sin(angle) * 2.5;
+                    double y = player.getY();
+
+                    mob.setPos(x, y, z);
+
+                    // Don't spawn inside blocks or other entities.
+                    if (!serverLevel.noCollision(mob)) {
+                        continue;
+                    }
+
+                    ally.cardbound$setOwnerUuid(player.getUUID());
+                    ally.cardbound$setExpirationTick(
+                            serverLevel.getGameTime() + summonAction.duration()
+                    );
+                    mob.setGlowingTag(true);
+
+                    if (serverLevel.addFreshEntity(mob)) {
+                        spawned++;
+                    }
+                }
+
+                if (spawned > 0) {
+                    anyApplied = true;
+                }
+            }
+
+            // New
 
         }
 

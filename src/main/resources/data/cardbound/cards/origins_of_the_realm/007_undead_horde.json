@@ -6,11 +6,15 @@
   "entity": "minecraft:zombie",
   "texture": "cardbound:007_undead_horde",
   "cost": 10,
-  "ability_description": "Summon 3 temporary allied zombies | WIP",
+  "ability_description": "Summon 3 allied zombies for 30 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:summon",
+        "entity": "minecraft:zombie",
+        "count": 3,
+        "duration": 600
+      }
+    ]
   }
 }
