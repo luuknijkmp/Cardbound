@@ -5,7 +5,7 @@ import net.minecraft.resources.Identifier;
 
 public sealed interface AbilityAction
         permits ApplyEffectAction, HealAction, ExplosionAction,
-        LightningAction, SummonAction {
+        LightningAction, SummonAction, DeathProtectionAction {
 
     Identifier APPLY_EFFECT =
             Identifier.fromNamespaceAndPath("cardbound", "apply_effect");
@@ -21,6 +21,9 @@ public sealed interface AbilityAction
 
     Identifier SUMMON =
             Identifier.fromNamespaceAndPath("cardbound", "summon");
+
+    Identifier DEATH_PROTECTION =
+            Identifier.fromNamespaceAndPath("cardbound", "death_protection");
 
     Codec<AbilityAction> CODEC = Identifier.CODEC.dispatch(
             "type",
@@ -44,6 +47,10 @@ public sealed interface AbilityAction
 
                 if (type.equals(SUMMON)) {
                     return SummonAction.CODEC;
+                }
+
+                if (type.equals(DEATH_PROTECTION)) {
+                    return DeathProtectionAction.CODEC;
                 }
 
                 throw new IllegalArgumentException(

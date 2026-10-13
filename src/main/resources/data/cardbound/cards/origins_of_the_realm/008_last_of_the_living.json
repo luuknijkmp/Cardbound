@@ -6,11 +6,13 @@
   "entity": "minecraft:zombie",
   "texture": "cardbound:008_last_of_the_living",
   "cost": 16,
-  "ability_description": "Survive one lethal hit at 1 HP within 20 seconds | WIP",
+  "ability_description": "Survive one lethal hit at 1 HP within 20 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:death_protection",
+        "duration": 400
+      }
+    ]
   }
 }

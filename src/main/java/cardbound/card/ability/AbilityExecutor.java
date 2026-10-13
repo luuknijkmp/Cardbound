@@ -109,6 +109,12 @@ public final class AbilityExecutor {
                     return false;
                 }
             }
+            else if (action instanceof DeathProtectionAction protectionAction) {
+                if (protectionAction.duration() < 1
+                        || protectionAction.duration() > 12000) {
+                    return false;
+                }
+            }
 
             // New
 
@@ -306,6 +312,15 @@ public final class AbilityExecutor {
                 if (spawned > 0) {
                     anyApplied = true;
                 }
+            }
+            else if (action instanceof DeathProtectionAction protectionAction) {
+                player.addEffect(new MobEffectInstance(
+                        CardEffects.PROTECTED,
+                        protectionAction.duration(),
+                        0
+                ));
+
+                anyApplied = true;
             }
 
             // New

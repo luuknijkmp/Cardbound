@@ -7,7 +7,8 @@
 		"MobAccessor",
 		"ZombieTargetGoalMixin",
 		"TargetGoalAccessor",
-		"EntitySummonPersistenceMixin"
+		"EntitySummonPersistenceMixin",
+		"ProtectedDeathMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -1,6 +1,7 @@
 package cardbound;
 
 import cardbound.booster.BoosterReloadListener;
+import cardbound.card.ability.CardEffects;
 import cardbound.essence.PlayerEssence;
 import cardbound.network.CardRevealPayload;
 import cardbound.set.SetReloadListener;
@@ -39,6 +40,7 @@ public class Cardbound implements ModInitializer {
 		PlayerEssence.initialize();
 		ModSounds.initialize();
 		ModCreativeTabs.initialize();
+		CardEffects.initialize();
 
 		//System.out.println("[CARDBOUND] Registering card reload listener");
 		ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(

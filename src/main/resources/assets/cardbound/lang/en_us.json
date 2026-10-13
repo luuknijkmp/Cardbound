@@ -2,5 +2,6 @@
   "item.cardbound.card": "Blank Trading Card",
   "item.cardbound.booster_pack": "Booster Pack",
   "key.cardbound.open_settings": "Open Cardbound Settings",
-  "item.cardbound.vial_of_essence": "Vial of Essence"
+  "item.cardbound.vial_of_essence": "Vial of Essence",
+  "effect.cardbound.protected": "Protected"
 }
