@@ -6,11 +6,13 @@
   "entity": "minecraft:player",
   "texture": "cardbound:081_crafting_table",
   "cost": 6,
-  "ability_description": "Open a crafting table anywhere | WIP",
+  "ability_description": "Open a crafting table anywhere.",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:open_menu",
+        "menu": "crafting"
+      }
+    ]
   }
 }

@@ -12,7 +12,8 @@
 		"WolfAllyMixin",
 		"GuardiansBiteMixin",
 		"CatLandingMixin",
-		"SilverfishAllyMixin"
+		"SilverfishAllyMixin",
+		"VexAllyMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

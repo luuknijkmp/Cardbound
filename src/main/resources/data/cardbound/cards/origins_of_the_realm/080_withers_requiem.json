@@ -6,11 +6,22 @@
   "entity": "minecraft:wither_skeleton",
   "texture": "cardbound:080_withers_requiem",
   "cost": 18,
-  "ability_description": "Inflict Wither II on nearby enemies and gain Strength II for 15 seconds | WIP",
+  "ability_description": "Unleash a soul aura for 15 seconds, dealing magic damage to nearby enemies every second and stealing their health. Gain Strength II.",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:wither_aura",
+        "radius": 6.0,
+        "duration": 300,
+        "damage": 2.0,
+        "heal_per_hit": 1.0
+      },
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:strength",
+        "duration": 300,
+        "amplifier": 1
+      }
+    ]
   }
 }

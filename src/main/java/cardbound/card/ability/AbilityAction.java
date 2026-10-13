@@ -11,7 +11,8 @@ public sealed interface AbilityAction
         WindLaunchAction, ItemMagnetAction, HealingAuraAction,
         AreaPoisonAction, DragonBreathAction, AreaGlowingAction,
         SandstormCurseAction, LlamaSpitAction, MagmaEruptionAction,
-        PhantomDiveAction, SnowballVolleyAction
+        PhantomDiveAction, SnowballVolleyAction, AreaEffectAction,
+        WitherAuraAction, OpenMenuAction
     {
 
     Identifier APPLY_EFFECT =
@@ -82,6 +83,15 @@ public sealed interface AbilityAction
 
     Identifier SNOWBALL_VOLLEY =
             Identifier.fromNamespaceAndPath("cardbound", "snowball_volley");
+
+    Identifier AREA_EFFECT =
+            Identifier.fromNamespaceAndPath("cardbound", "area_effect");
+
+    Identifier WITHER_AURA =
+            Identifier.fromNamespaceAndPath("cardbound", "wither_aura");
+
+    Identifier OPEN_MENU =
+            Identifier.fromNamespaceAndPath("cardbound", "open_menu");
 
 
     Codec<AbilityAction> CODEC = Identifier.CODEC.dispatch(
@@ -178,6 +188,18 @@ public sealed interface AbilityAction
 
                 if (type.equals(SNOWBALL_VOLLEY)) {
                     return SnowballVolleyAction.CODEC;
+                }
+
+                if (type.equals(AREA_EFFECT)) {
+                    return AreaEffectAction.CODEC;
+                }
+
+                if (type.equals(WITHER_AURA)) {
+                    return WitherAuraAction.CODEC;
+                }
+
+                if (type.equals(OPEN_MENU)) {
+                    return OpenMenuAction.CODEC;
                 }
 
                 throw new IllegalArgumentException(

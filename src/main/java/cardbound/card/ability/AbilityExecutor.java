@@ -346,8 +346,40 @@ public final class AbilityExecutor {
                         || snowballAction.knockback() > 5.0F) {
                     return false;
                 }
+            } else if (action instanceof AreaEffectAction areaAction) {
 
-            } else {
+                if (!Double.isFinite(areaAction.radius())
+                        || areaAction.radius() <= 0.0
+                        || areaAction.radius() > 32.0
+                        || areaAction.duration() <= 0
+                        || areaAction.duration() > 72000
+                        || areaAction.amplifier() < 0
+                        || areaAction.amplifier() > 255
+                        || !BuiltInRegistries.MOB_EFFECT
+                        .containsKey(areaAction.effect())) {
+                    return false;
+                }
+            }
+            else if (action instanceof WitherAuraAction witherAura) {
+                if (!Double.isFinite(witherAura.radius())
+                        || witherAura.radius() <= 0.0
+                        || witherAura.radius() > 32.0
+                        || witherAura.duration() <= 0
+                        || witherAura.duration() > 12000
+                        || !Float.isFinite(witherAura.damage())
+                        || witherAura.damage() <= 0.0F
+                        || !Float.isFinite(witherAura.healPerHit())
+                        || witherAura.healPerHit() <= 0.0F) {
+                    return false;
+                }
+            }
+            else if (action instanceof OpenMenuAction openMenu) {
+                if (!openMenu.menu().equals("crafting")
+                        && !openMenu.menu().equals("stonecutter")) {
+                    return false;
+                }
+            }
+            else {
                 return false;
             }
 
@@ -1213,10 +1245,75 @@ public final class AbilityExecutor {
                     SnowballVolleyManager.start(serverPlayer, snowballAction);
                     anyApplied = true;
                 }
+            } else if (action instanceof AreaEffectAction areaAction) {
+
+                if (!(player.level() instanceof ServerLevel serverLevel)) {
+                    return false;
+                }
+
+                double radius = areaAction.radius();
+                double radiusSquared = radius * radius;
+
+                var effectType = BuiltInRegistries.MOB_EFFECT
+                        .get(areaAction.effect())
+                        .orElseThrow();
+
+                var nearbyTargets = serverLevel.getEntitiesOfClass(
+                        LivingEntity.class,
+                        player.getBoundingBox().inflate(radius),
+                        target -> target != player
+                                && target.isAlive()
+                                && target.distanceToSqr(player) <= radiusSquared
+                                && !(target instanceof SummonedAlly ally
+                                && ally.cardbound$getOwnerUuid() != null)
+                                && (target instanceof ServerPlayer
+                                || target instanceof net.minecraft.world.entity.monster.Enemy)
+                );
+
+                for (LivingEntity target : nearbyTargets) {
+
+                    target.addEffect(new MobEffectInstance(
+                            effectType,
+                            areaAction.duration(),
+                            areaAction.amplifier()
+                    ));
+
+                    // Snowy burst around each affected enemy.
+                    serverLevel.sendParticles(
+                            ParticleTypes.SNOWFLAKE,
+                            target.getX(),
+                            target.getY() + target.getBbHeight() * 0.5,
+                            target.getZ(),
+                            25,
+                            target.getBbWidth() * 0.6,
+                            target.getBbHeight() * 0.4,
+                            target.getBbWidth() * 0.6,
+                            0.03
+                    );
+                }
+
+                anyApplied = true;
+            }
+            else if (action instanceof WitherAuraAction witherAura) {
+                if (!(player instanceof ServerPlayer serverPlayer)) {
+                    return false;
+                }
+
+                WitherAuraManager.start(serverPlayer, witherAura);
+                anyApplied = true;
+            }
+            else if (action instanceof OpenMenuAction openMenu) {
+                if (!(player instanceof ServerPlayer serverPlayer)) {
+                    return false;
+                }
+
+                if (!PortableMenuHelper.open(serverPlayer, openMenu.menu())) {
+                    return false;
+                }
+
+                anyApplied = true;
             }
         }
-
-
 
         if (!anyApplied) {
             return false;

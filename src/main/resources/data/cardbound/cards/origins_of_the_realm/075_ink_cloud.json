@@ -6,11 +6,16 @@
   "entity": "minecraft:squid",
   "texture": "cardbound:075_ink_cloud",
   "cost": 5,
-  "ability_description": "Blindness on nearby enemies for 5 seconds | WIP",
+  "ability_description": "Blindness on nearby enemies for 5 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:area_effect",
+        "effect": "minecraft:blindness",
+        "radius": 6.0,
+        "duration": 100,
+        "amplifier": 0
+      }
+    ]
   }
 }

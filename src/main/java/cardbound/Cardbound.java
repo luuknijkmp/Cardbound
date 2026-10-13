@@ -49,6 +49,7 @@ public class Cardbound implements ModInitializer {
 		MagmaEruptionManager.initialize();
 		PhantomDiveManager.initialize();
 		SnowballVolleyManager.register();
+		WitherAuraManager.register();
 
 		//System.out.println("[CARDBOUND] Registering card reload listener");
 		ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(

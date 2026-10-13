@@ -6,11 +6,15 @@
   "entity": "minecraft:vex",
   "texture": "cardbound:079_vexing_spirit",
   "cost": 11,
-  "ability_description": "Summon a temporary allied vex | WIP",
+  "ability_description": "Summon a glowing allied vex for 30 seconds that attacks hostile mobs and enemy players.",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:summon",
+        "entity": "minecraft:vex",
+        "count": 1,
+        "duration": 600
+      }
+    ]
   }
 }
