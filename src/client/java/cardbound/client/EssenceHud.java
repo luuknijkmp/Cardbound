@@ -3,6 +3,7 @@ package cardbound.client;
 import cardbound.ModItems;
 import cardbound.essence.PlayerEssence;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.renderer.RenderPipelines;
@@ -39,7 +40,8 @@ public final class EssenceHud {
     }
 
     public static void initialize() {
-        HudElementRegistry.addLast(
+        HudElementRegistry.attachElementBefore(
+                VanillaHudElements.FOOD_BAR,
                 Identifier.fromNamespaceAndPath("cardbound", "essence_hud"),
                 (graphics, deltaTracker) -> {
 

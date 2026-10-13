@@ -8,9 +8,13 @@
   "cost": 3,
   "ability_description": "Speed I for 20 seconds",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:apply_effect",
+        "effect": "minecraft:speed",
+        "duration": 400,
+        "amplifier": 0
+      }
+    ]
   }
 }

@@ -13,6 +13,7 @@ public record CardDefinition(
         int number,
         Identifier entity,
         int cost,
+        int cooldown,
         Optional<CardAbility> ability,
         String abilityDescription,
         Optional<Identifier> texture
@@ -36,6 +37,9 @@ public record CardDefinition(
 
                     Codec.INT.optionalFieldOf("cost", 0)
                             .forGetter(CardDefinition::cost),
+
+                    Codec.INT.optionalFieldOf("cooldown", 0)
+                            .forGetter(CardDefinition::cooldown),
 
                     CardAbility.CODEC.optionalFieldOf("ability")
                             .forGetter(CardDefinition::ability),

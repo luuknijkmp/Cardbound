@@ -8,9 +8,13 @@
   "cost": 6,
   "ability_description": "Small explosion damages nearby enemies, not terrain | WIP",
   "ability": {
-    "type": "cardbound:apply_effect",
-    "effect": "minecraft:speed",
-    "duration": 400,
-    "amplifier": 0
+    "actions": [
+      {
+        "type": "cardbound:explosion",
+        "radius": 3.0,
+        "damage": 5.0,
+        "damages_terrain": false
+      }
+    ]
   }
 }

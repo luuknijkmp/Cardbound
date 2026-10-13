@@ -1,28 +1,20 @@
 package cardbound.card;
 
+import cardbound.card.ability.AbilityAction;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.resources.Identifier;
+
+import java.util.List;
 
 public record CardAbility(
-        Identifier type,
-        Identifier effect,
-        int duration,
-        int amplifier
+        List<AbilityAction> actions
 ) {
+
     public static final Codec<CardAbility> CODEC =
             RecordCodecBuilder.create(instance -> instance.group(
-                    Identifier.CODEC.fieldOf("type")
-                            .forGetter(CardAbility::type),
-
-                    Identifier.CODEC.fieldOf("effect")
-                            .forGetter(CardAbility::effect),
-
-                    Codec.INT.fieldOf("duration")
-                            .forGetter(CardAbility::duration),
-
-                    Codec.INT.fieldOf("amplifier")
-                            .forGetter(CardAbility::amplifier)
+                    AbilityAction.CODEC.listOf()
+                            .fieldOf("actions")
+                            .forGetter(CardAbility::actions)
 
             ).apply(instance, CardAbility::new));
 }
