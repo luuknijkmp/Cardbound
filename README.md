@@ -2,8 +2,6 @@
 
 [Download on Modrinth](https://modrinth.com/project/cardbound)
 
-**Collect powerful cards. Discover unique abilities. Bring a little magic to your Minecraft adventures.**
-
 Cardbound introduces collectible cards inspired by Minecraft's mobs, blocks, items, and environments. Each card features its own artwork, rarity, and unique ability that can help you explore, build, fight, and survive.
 
 With **82 unique cards to discover** in the first collection, there's plenty to collect, experiment with, and master!
