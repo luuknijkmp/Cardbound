@@ -14,7 +14,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"minecraft-tcg" {
+		"cardbound" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
