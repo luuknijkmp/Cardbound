@@ -19,6 +19,12 @@ public class ModItems {
                     Identifier.fromNamespaceAndPath("cardbound", "card")
             );
 
+    public static final ResourceKey<Item> TABICON_KEY =
+            ResourceKey.create(
+                    Registries.ITEM,
+                    Identifier.fromNamespaceAndPath("cardbound", "icon")
+            );
+
     public static final ResourceKey<Item> BOOSTER_PACK_KEY =
             ResourceKey.create(
                     Registries.ITEM,
@@ -54,6 +60,14 @@ public class ModItems {
             new Item(new Item.Properties()
                     .setId(VIAL_OF_ESSENCE_KEY)
                     .stacksTo(64))
+    );
+
+    public static final Item TABICON = Registry.register(
+            BuiltInRegistries.ITEM,
+            TABICON_KEY,
+            new Item(new Item.Properties()
+                    .setId(TABICON_KEY)
+                    .stacksTo(1))
     );
 
     public static void initialize() {

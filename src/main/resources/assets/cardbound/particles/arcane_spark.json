@@ -1,8 +1,9 @@
 {
   "textures": [
-    "minecraft:sculk_soul_0",
-    "minecraft:sculk_soul_1",
-    "minecraft:sculk_soul_2",
-    "minecraft:sculk_soul_3"
+    "cardbound:essence_4",
+    "cardbound:essence_3",
+    "cardbound:essence_2",
+    "cardbound:essence_1",
+    "cardbound:essence_0"
   ]
 }

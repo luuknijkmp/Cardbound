@@ -101,6 +101,22 @@ public class ModSettingsScreen extends Screen {
                         }
                 ).bounds(rightX, startY + 28, buttonWidth, buttonHeight).build()
         );
+
+        // Enable or disable the screen flash when activating a card.
+        this.addRenderableWidget(
+                Button.builder(
+                        getActivationFlashLabel(),
+                        button -> {
+                            ModConfig config = ModConfig.get();
+
+                            config.showCardActivationFlash =
+                                    !config.showCardActivationFlash;
+
+                            ModConfig.save();
+                            button.setMessage(getActivationFlashLabel());
+                        }
+                ).bounds(leftX, startY + 56, buttonWidth, buttonHeight).build()
+        );
     }
 
     @Override
@@ -152,6 +168,15 @@ public class ModSettingsScreen extends Screen {
         return Component.literal(
                 "Card Reveal: " +
                         (ModConfig.get().showCardReveal ? "Enabled" : "Disabled")
+        );
+    }
+
+    private Component getActivationFlashLabel() {
+        return Component.literal(
+                "Activation Flash: " +
+                        (ModConfig.get().showCardActivationFlash
+                                ? "Enabled"
+                                : "Disabled")
         );
     }
 }

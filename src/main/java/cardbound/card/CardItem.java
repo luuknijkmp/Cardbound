@@ -1,6 +1,7 @@
 package cardbound.card;
 
 import cardbound.ModComponents;
+import cardbound.ModSounds;
 import cardbound.card.ability.AbilityExecutor;
 import cardbound.network.CardActivationPayload;
 import cardbound.network.CardRevealPayload;
@@ -13,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import cardbound.card.CardActivationRing;
+import net.minecraft.sounds.SoundSource;
 
 public class CardItem extends Item {
 
@@ -67,6 +69,20 @@ public class CardItem extends Item {
         // Play activation feedback after a successful ability.
         if (player instanceof ServerPlayer serverPlayer) {
             CardActivationRing.start(serverPlayer);
+
+            float pitch = 0.95F
+                    + serverPlayer.getRandom().nextFloat() * 0.10F;
+
+            serverPlayer.level().playSound(
+                    null,
+                    serverPlayer.getX(),
+                    serverPlayer.getY(),
+                    serverPlayer.getZ(),
+                    ModSounds.CARD_ACTIVATE,
+                    SoundSource.AMBIENT,
+                    1.0F,
+                    pitch
+            );
 
             ServerPlayNetworking.send(
                     serverPlayer,

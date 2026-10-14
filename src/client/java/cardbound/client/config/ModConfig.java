@@ -36,6 +36,9 @@ public final class ModConfig {
     // Card opening preferences
     public boolean showCardReveal = true;
 
+    // Card activation effects
+    public boolean showCardActivationFlash = true;
+
     private static ModConfig instance = new ModConfig();
 
     private ModConfig() {

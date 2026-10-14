@@ -21,7 +21,7 @@ public class CardboundClient implements ClientModInitializer {
 		ModConfig.load();
 		EssenceHud.initialize();
 		ModKeybindings.initialize();
-		//CardActivationHud.initialize(); <- UNCOMMENT TO ENABLE CARD ACTIVATION HUD
+		CardActivationHud.initialize();// <- UNCOMMENT TO ENABLE CARD ACTIVATION HUD
 
 		ParticleProviderRegistry.getInstance().register(
 				ModParticles.ARCANE_SPARK,
@@ -54,13 +54,13 @@ public class CardboundClient implements ClientModInitializer {
 					//		minecraft.player.getItemInHand(hand).copy()
 					//);
 
-					float pitch = 0.95F + minecraft.player.getRandom().nextFloat() * 0.10F;
+					//float pitch = 0.95F + minecraft.player.getRandom().nextFloat() * 0.10F;
 
-					minecraft.player.playSound(
-							ModSounds.CARD_ACTIVATE,
-							1.0F,
-							pitch
-					);
+					//minecraft.player.playSound(
+					//		ModSounds.CARD_ACTIVATE,
+					//		1.0F,
+					//		pitch
+					//);
 				}
 		);
 

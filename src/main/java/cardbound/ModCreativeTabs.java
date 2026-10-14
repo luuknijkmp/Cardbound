@@ -30,7 +30,7 @@ public class ModCreativeTabs {
             CARDBOUND_TAB_KEY,
             CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
                     .title(Component.literal("Cardbound"))
-                    .icon(() -> new ItemStack(ModItems.BOOSTER_PACK))
+                    .icon(() -> new ItemStack(ModItems.TABICON))
                     .displayItems((parameters, output) -> {
                         for (Identifier boosterId : BoosterRegistry.getAllIds()
                                 .stream()
