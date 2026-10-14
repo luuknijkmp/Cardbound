@@ -1,6 +1,7 @@
 package cardbound;
 
 import cardbound.booster.BoosterReloadListener;
+import cardbound.card.CardActivationRing;
 import cardbound.card.ability.*;
 import cardbound.essence.PlayerEssence;
 import cardbound.network.CardRevealPayload;
@@ -50,6 +51,8 @@ public class Cardbound implements ModInitializer {
 		PhantomDiveManager.initialize();
 		SnowballVolleyManager.register();
 		WitherAuraManager.register();
+		CardActivationRing.register();
+		ModParticles.initialize();
 
 		//System.out.println("[CARDBOUND] Registering card reload listener");
 		ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(

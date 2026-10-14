@@ -12,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import cardbound.card.CardActivationRing;
 
 public class CardItem extends Item {
 
@@ -63,7 +64,10 @@ public class CardItem extends Item {
         }
 
         // Play the existing activation animation.
+        // Play activation feedback after a successful ability.
         if (player instanceof ServerPlayer serverPlayer) {
+            CardActivationRing.start(serverPlayer);
+
             ServerPlayNetworking.send(
                     serverPlayer,
                     new CardActivationPayload(hand == InteractionHand.OFF_HAND)
