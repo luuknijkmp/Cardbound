@@ -1,10 +1,23 @@
 # Cardbound
 
+[Download on Modrinth](https://modrinth.com/project/cardbound)
+
 **Collect powerful cards. Discover unique abilities. Bring a little magic to your Minecraft adventures.**
 
 Cardbound introduces collectible cards inspired by Minecraft's mobs, blocks, items, and environments. Each card features its own artwork, rarity, and unique ability that can help you explore, build, fight, and survive.
 
 With **82 unique cards to discover** in the first collection, there's plenty to collect, experiment with, and master!
+
+## Installation
+
+1. Install Minecraft 26.2 with Fabric Loader.
+2. Install the compatible Fabric API version.
+3. [Download Cardbound from Modrinth](https://modrinth.com/project/cardbound).
+4. Place the Cardbound JAR in your `mods` folder.
+5. Launch Minecraft and start collecting!
+
+For multiplayer, install Cardbound and its required dependencies
+on both the server and connecting clients.
 
 ## 🃏 Collect & Discover
 
@@ -66,12 +79,15 @@ Choose between detailed and minimal Essence HUD styles, control when the HUD app
 
 Settings are accessible through Cardbound's in-game settings screen, with optional Mod Menu integration.
 
-## 🚧 Release Status
+## Bug Reports & Suggestions
 
-**Cardbound is currently in public beta.**
+Cardbound is currently in beta, and feedback is welcome!
 
-The first collection is complete, and this release is focused on gathering player feedback, fixing bugs, and improving the overall experience before version 1.0.
+If you encounter a bug, please open an issue in the
+[GitHub Issues](https://github.com/luuknijkmp/Cardbound/issues) section.
 
-If you encounter an issue or have a suggestion, feedback is always welcome!
-
-Future updates are planned to expand Cardbound with additional card sets, abilities, and features.
+When reporting a bug, please include:
+- Your Cardbound version
+- Your Minecraft version
+- Steps to reproduce the issue
+- Relevant logs or screenshots, if available
