@@ -17,7 +17,7 @@ With **82 unique cards to discover** in the first collection, there's plenty to 
 For multiplayer, install Cardbound and its required dependencies
 on both the server and connecting clients.
 
-## 🃏 Collect & Discover
+## Collect & Discover
 
 Open themed booster packs to discover new cards and expand your collection.
 
@@ -29,7 +29,7 @@ You might even discover a **holographic variant** of your favorite card!
 
 Begin your collection with **Origins of the Realm**, Cardbound's first card set, featuring 82 cards inspired by the world of Minecraft.
 
-## ✨ Unleash Unique Abilities
+## Unleash Unique Abilities
 
 Activate your cards to unleash abilities that complement your everyday Minecraft adventures.
 
@@ -39,13 +39,13 @@ Every card offers something different, encouraging you to experiment and discove
 
 Custom sounds, magical particles, and visual effects make each activation feel special.
 
-## 💧 Master Your Essence
+## Master Your Essence
 
 Activating card abilities consumes **Essence**, a magical resource that gradually regenerates over time.
 
 Your Essence is limited, so deciding when to use your abilities is part of the adventure. Save it for an emergency or spend it to make everyday tasks easier.
 
-## 🌍 Made for Minecraft Survival
+## Made for Minecraft Survival
 
 Cardbound is designed to **complement vanilla Minecraft, not replace it**.
 
@@ -71,7 +71,7 @@ Cardbound also supports multiplayer, so you can collect and use your cards while
 - **Multiplayer Support** - Collect and activate cards on Fabric multiplayer servers.
 - **Survival-Focused Gameplay** - Enhance your Minecraft adventures without separate card battles or deck-building requirements.
 
-## ⚙️ Customization
+## Customization
 
 Choose between detailed and minimal Essence HUD styles, control when the HUD appears, customize your keybindings, and toggle automatic card reveals.
 
